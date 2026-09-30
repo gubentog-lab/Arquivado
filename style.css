@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-
 body {
-
     width: 100%;
     min-height: 100vh;
 
@@ -17,16 +15,13 @@ body {
     background: #151312;
 }
 
-
 .investigation {
-
     position: relative;
 
     width: 100%;
     height: 100vh;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -36,14 +31,12 @@ body {
 }
 
 
-/* =================================
-   MESA
-================================= */
+/* ================================= */
+/* MESA */
+/* ================================= */
 
 .desk {
-
     position: absolute;
-
     inset: 0;
 
     background:
@@ -55,13 +48,10 @@ body {
         );
 }
 
-
 .desk::after {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     opacity: .08;
@@ -76,12 +66,11 @@ body {
 }
 
 
-/* =================================
-   PASTA
-================================= */
+/* ================================= */
+/* PASTA */
+/* ================================= */
 
 .folder {
-
     position: relative;
 
     width: min(720px, 85vw);
@@ -99,11 +88,7 @@ body {
     z-index: 5;
 }
 
-
-/* PAPÉIS */
-
 .paper {
-
     position: absolute;
 
     width: 92%;
@@ -118,23 +103,16 @@ body {
         0 8px 15px rgba(0,0,0,.25);
 }
 
-
 .paper-one {
     transform: rotate(2deg);
 }
-
 
 .paper-two {
     transform: rotate(-3deg);
 }
 
-
-/* INTERIOR */
-
 .folder-inside {
-
     position: absolute;
-
     inset: 0;
 
     padding: 25px;
@@ -155,10 +133,11 @@ body {
 }
 
 
-/* PÁGINA */
+/* ================================= */
+/* PRIMEIRA PÁGINA */
+/* ================================= */
 
 .first-page {
-
     position: relative;
 
     width: 100%;
@@ -190,9 +169,7 @@ body {
         transform .9s cubic-bezier(.2,.8,.2,1) .65s;
 }
 
-
 .folder.open .first-page {
-
     opacity: 1;
 
     transform:
@@ -201,21 +178,13 @@ body {
         rotate(-1deg);
 }
 
-
-/* CABEÇALHO */
-
 .page-header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: flex-start;
 }
 
-
 .document-type {
-
     display: block;
 
     margin-bottom: 8px;
@@ -227,9 +196,7 @@ body {
     color: #756c5d;
 }
 
-
 .page-header h2 {
-
     font-family: "Special Elite", serif;
 
     font-size: 28px;
@@ -239,17 +206,13 @@ body {
     letter-spacing: 1px;
 }
 
-
 .document-number {
-
     font-size: 11px;
 
     color: #756c5d;
 }
 
-
 .page-line {
-
     width: 100%;
     height: 1px;
 
@@ -258,36 +221,25 @@ body {
     background: #9a907e;
 }
 
-
 .report-content {
-
     display: flex;
-
     justify-content: space-between;
 
     gap: 45px;
 }
 
-
 .report-text {
-
     max-width: 390px;
 
     font-size: 12px;
-
     line-height: 1.7;
 }
-
 
 .report-text strong {
     color: #514a40;
 }
 
-
-/* FOTO */
-
 .evidence-photo {
-
     width: 170px;
 
     flex-shrink: 0;
@@ -295,16 +247,12 @@ body {
     transform: rotate(3deg);
 }
 
-
 .photo-placeholder {
-
     width: 170px;
     height: 135px;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 
@@ -321,17 +269,13 @@ body {
         0 5px 8px rgba(0,0,0,.35);
 }
 
-
 .photo-placeholder span {
-
     font-family: "Special Elite", serif;
 
     font-size: 22px;
 }
 
-
 .photo-placeholder small {
-
     margin-top: 5px;
 
     font-size: 8px;
@@ -339,9 +283,7 @@ body {
     letter-spacing: 2px;
 }
 
-
 .photo-caption {
-
     margin-top: 7px;
 
     text-align: center;
@@ -353,11 +295,7 @@ body {
     color: #716958;
 }
 
-
-/* ANOTAÇÃO */
-
 .hand-note {
-
     position: absolute;
 
     right: 45px;
@@ -366,7 +304,6 @@ body {
     font-family: "Special Elite", serif;
 
     font-size: 15px;
-
     line-height: 1.1;
 
     color: #8a2929;
@@ -374,11 +311,7 @@ body {
     transform: rotate(-7deg);
 }
 
-
-/* CARIMBO */
-
 .page-stamp {
-
     position: absolute;
 
     left: 40px;
@@ -399,11 +332,7 @@ body {
     transform: rotate(-5deg);
 }
 
-
-/* RODAPÉ */
-
 .page-footer {
-
     position: absolute;
 
     bottom: 13px;
@@ -417,14 +346,12 @@ body {
 }
 
 
-/* =================================
-   CAPA
-================================= */
+/* ================================= */
+/* CAPA */
+/* ================================= */
 
 .folder-cover {
-
     position: absolute;
-
     inset: 0;
 
     transform-origin: top center;
@@ -437,30 +364,23 @@ body {
         transform 1.25s cubic-bezier(.65,0,.35,1);
 }
 
-
 .folder.open .folder-cover {
-
-    transform:
-        rotateX(-115deg);
+    transform: rotateX(-115deg);
 }
-
 
 .folder-cover .folder-label,
 .folder-cover .stamp,
 .folder-cover .folder-info,
 .folder-cover .open-button {
-
     transition:
         opacity .35s ease,
         visibility .35s ease;
 }
 
-
 .folder.open .folder-cover .folder-label,
 .folder.open .folder-cover .stamp,
 .folder.open .folder-cover .folder-info,
 .folder.open .folder-cover .open-button {
-
     opacity: 0;
 
     visibility: hidden;
@@ -468,11 +388,7 @@ body {
     pointer-events: none;
 }
 
-
-/* ABA */
-
 .folder-tab {
-
     position: absolute;
 
     top: -45px;
@@ -487,9 +403,7 @@ body {
         12px 12px 0 0;
 }
 
-
 .folder-tab span {
-
     position: absolute;
 
     left: 25px;
@@ -504,18 +418,12 @@ body {
     color: #604f31;
 }
 
-
 .folder.open .folder-tab span {
     opacity: 0;
 }
 
-
-/* CORPO */
-
 .folder-body {
-
     position: absolute;
-
     inset: 0;
 
     padding: 55px;
@@ -536,13 +444,10 @@ body {
         inset 0 -5px 20px rgba(70,45,15,.12);
 }
 
-
 .folder-body::after {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     opacity: .10;
@@ -558,11 +463,7 @@ body {
     pointer-events: none;
 }
 
-
-/* ETIQUETA */
-
 .folder-label {
-
     position: relative;
 
     width: 360px;
@@ -579,9 +480,7 @@ body {
     z-index: 2;
 }
 
-
 .label-small {
-
     display: block;
 
     margin-bottom: 9px;
@@ -593,9 +492,7 @@ body {
     color: #645b4c;
 }
 
-
 .folder-label h1 {
-
     font-family: "Special Elite", serif;
 
     font-size: clamp(30px,5vw,44px);
@@ -607,9 +504,7 @@ body {
     color: #292621;
 }
 
-
 .label-line {
-
     width: 100%;
     height: 1px;
 
@@ -618,9 +513,7 @@ body {
     background: #817560;
 }
 
-
 .label-info {
-
     font-size: 12px;
 
     letter-spacing: 4px;
@@ -628,11 +521,7 @@ body {
     color: #8d2424;
 }
 
-
-/* CARIMBO */
-
 .stamp {
-
     position: absolute;
 
     top: 75px;
@@ -655,11 +544,7 @@ body {
     opacity: .82;
 }
 
-
-/* INFORMAÇÕES */
-
 .folder-info {
-
     position: absolute;
 
     left: 55px;
@@ -672,19 +557,14 @@ body {
     z-index: 3;
 }
 
-
 .folder-info div {
-
     display: flex;
-
     flex-direction: column;
 
     gap: 5px;
 }
 
-
 .folder-info span {
-
     font-size: 9px;
 
     letter-spacing: 2px;
@@ -692,9 +572,7 @@ body {
     color: #68583e;
 }
 
-
 .folder-info strong {
-
     font-size: 12px;
 
     letter-spacing: 1px;
@@ -704,11 +582,7 @@ body {
     color: #302a20;
 }
 
-
-/* BOTÃO */
-
 .open-button {
-
     position: absolute;
 
     right: 55px;
@@ -730,17 +604,12 @@ body {
 
     cursor: pointer;
 
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        box-shadow .2s ease;
-
     z-index: 5;
+
+    transition: .2s;
 }
 
-
 .open-button:hover {
-
     transform: translateY(-3px);
 
     background: #745b38;
@@ -749,21 +618,18 @@ body {
         0 7px 12px rgba(0,0,0,.2);
 }
 
-
 .button-icon {
-
     margin-right: 8px;
 
     font-size: 18px;
 }
 
 
-/* =================================
-   CLIPE
-================================= */
+/* ================================= */
+/* ELEMENTOS DA MESA */
+/* ================================= */
 
 .paperclip {
-
     position: absolute;
 
     width: 24px;
@@ -784,13 +650,7 @@ body {
     opacity: .9;
 }
 
-
-/* =================================
-   POST-IT
-================================= */
-
 .note {
-
     position: absolute;
 
     right: 7%;
@@ -826,13 +686,7 @@ body {
     z-index: 8;
 }
 
-
-/* =================================
-   DATA
-================================= */
-
 .date {
-
     position: absolute;
 
     left: 6%;
@@ -850,12 +704,11 @@ body {
 }
 
 
-/* =================================
-   NAVEGAÇÃO
-================================= */
+/* ================================= */
+/* NAVEGAÇÃO */
+/* ================================= */
 
 .navigation {
-
     position: absolute;
 
     bottom: 25px;
@@ -866,7 +719,6 @@ body {
         translateY(8px);
 
     display: flex;
-
     align-items: center;
 
     gap: 25px;
@@ -881,16 +733,12 @@ body {
 
     pointer-events: none;
 
-    transition:
-        opacity .5s ease,
-        transform .5s ease;
+    transition: .5s;
 
     z-index: 20;
 }
 
-
 .navigation.visible {
-
     opacity: 1;
 
     pointer-events: auto;
@@ -900,9 +748,7 @@ body {
         translateY(0);
 }
 
-
 .nav-button {
-
     border: none;
 
     background: none;
@@ -918,115 +764,60 @@ body {
     cursor: pointer;
 }
 
-
 .nav-button:hover {
-
     color: #e6dfd2;
 
     transform: translateY(-2px);
 }
 
 
-/* =================================
-   TELA DE INVESTIGAÇÃO
-================================= */
+/* ================================= */
+/* LOCAL DA OCORRÊNCIA */
+/* ================================= */
 
 .investigation-screen {
-
     position: absolute;
 
     inset: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    background: #080908;
+    background: #151311;
 
     opacity: 0;
 
     visibility: hidden;
 
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+    transition: .8s;
 
     z-index: 30;
 }
 
-
 .investigation-screen.active {
-
     opacity: 1;
 
     visibility: visible;
 }
 
-
-/* CENA */
-
 .scene {
-
     position: relative;
 
-    width: min(1200px, 94vw);
-
-    aspect-ratio: 16 / 9;
+    width: min(1100px,90vw);
+    height: min(650px,80vh);
 
     overflow: hidden;
 
-    background: #111;
+    background: #151311;
 
-    border: 1px solid #4d4b44;
+    border: 1px solid #514d45;
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.65);
+        0 25px 50px rgba(0,0,0,.5);
 }
-
-
-/* IMAGEM */
-
-.crime-scene-image {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-
-/* ESCURECIMENTO */
-
-.scene-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.30),
-            transparent 35%,
-            rgba(0,0,0,.22)
-        );
-
-    pointer-events: none;
-}
-
-
-/* CABEÇALHO */
 
 .scene-header {
-
     position: absolute;
 
     top: 20px;
@@ -1034,24 +825,18 @@ body {
     right: 25px;
 
     display: flex;
-
     justify-content: space-between;
 
     font-size: 10px;
 
     letter-spacing: 2px;
 
-    color: #ddd7ca;
-
-    text-shadow:
-        0 2px 5px #000;
+    color: #b9b1a3;
 
     z-index: 10;
 }
 
-
 .scene-title {
-
     position: absolute;
 
     top: 52px;
@@ -1061,21 +846,41 @@ body {
 
     font-size: 23px;
 
-    color: #eee7d7;
-
-    text-shadow:
-        0 2px 6px #000;
+    color: #ddd5c5;
 
     z-index: 10;
 }
 
 
-/* =================================
-   ÁREAS CLICÁVEIS
-================================= */
+/* IMAGEM DA CENA */
 
-.scene-object {
+.crime-scene-image {
+    position: absolute;
 
+    left: 0;
+    right: 0;
+
+    top: 0;
+    bottom: 0;
+
+    overflow: hidden;
+}
+
+.crime-scene-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ================================= */
+/* ÁREAS CLICÁVEIS */
+/* ================================= */
+
+.hotspot {
     position: absolute;
 
     border: none;
@@ -1084,227 +889,110 @@ body {
 
     cursor: pointer;
 
-    z-index: 15;
+    z-index: 20;
 
     transition:
-        opacity .3s ease,
-        transform .3s ease;
+        background .2s,
+        box-shadow .2s;
 }
 
+.hotspot:hover {
+    background:
+        rgba(214,190,101,.12);
 
-/* PONTO DE INVESTIGAÇÃO */
+    box-shadow:
+        inset 0 0 0 2px rgba(214,190,101,.65),
+        0 0 20px rgba(214,190,101,.25);
+}
 
-.hotspot {
+.hotspot::after {
+    content: "?";
 
     position: absolute;
 
-    left: 50%;
     top: 50%;
+    left: 50%;
 
     width: 24px;
     height: 24px;
 
-    transform:
-        translate(-50%,-50%);
-
-    border: 2px solid #d7bd65;
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 0 5px rgba(215,189,101,.12),
-        0 0 15px rgba(215,189,101,.5);
-
-    animation:
-        hotspotPulse 1.8s infinite;
-}
-
-
-.hotspot::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 6px;
-    height: 6px;
-
-    left: 50%;
-    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transform:
         translate(-50%,-50%);
 
-    background: #d7bd65;
+    border: 1px solid #d6bd65;
 
     border-radius: 50%;
-}
 
+    background: rgba(15,14,12,.8);
 
-@keyframes hotspotPulse {
+    color: #d6bd65;
 
-    0%,
-    100% {
-
-        box-shadow:
-            0 0 0 5px rgba(215,189,101,.12),
-            0 0 15px rgba(215,189,101,.5);
-    }
-
-    50% {
-
-        box-shadow:
-            0 0 0 12px rgba(215,189,101,.03),
-            0 0 25px rgba(215,189,101,.8);
-    }
-}
-
-
-/* TEXTO */
-
-.object-label {
-
-    position: absolute;
-
-    left: 50%;
-    top: calc(50% + 25px);
-
-    transform:
-        translateX(-50%);
-
-    padding: 5px 8px;
-
-    background:
-        rgba(10,9,8,.78);
-
-    color: #ddd4c1;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-
-    white-space: nowrap;
+    font-family: "Special Elite", serif;
 
     opacity: 0;
 
-    transition:
-        opacity .2s ease;
+    transition: .2s;
 }
 
-
-.scene-object:hover .object-label {
+.hotspot:hover::after {
     opacity: 1;
 }
 
 
-.scene-object:hover .hotspot {
+/*
+    AJUSTE ESTAS POSIÇÕES CASO A SUA
+    IMAGEM TENHA OS OBJETOS EM LOCAIS
+    DIFERENTES.
+*/
 
-    transform:
-        translate(-50%,-50%)
-        scale(1.2);
+.hotspot-bench {
+    left: 8%;
+    bottom: 25%;
+
+    width: 25%;
+    height: 22%;
 }
 
+.hotspot-knife {
+    left: 57%;
+    bottom: 25%;
 
-/* ÁREAS */
-
-.bench {
-
-    left: 5%;
-    top: 54%;
-
-    width: 22%;
-    height: 25%;
+    width: 17%;
+    height: 13%;
 }
 
+.hotspot-body {
+    left: 35%;
+    bottom: 13%;
 
-.body {
-
-    left: 27%;
-    top: 56%;
-
-    width: 31%;
-    height: 23%;
-}
-
-
-.knife {
-
-    left: 65%;
-    top: 63%;
-
-    width: 14%;
-    height: 12%;
-}
-
-
-.trash {
-
-    right: 5%;
-    top: 50%;
-
-    width: 13%;
+    width: 25%;
     height: 30%;
 }
 
+.hotspot-trash {
+    right: 8%;
+    bottom: 18%;
 
-.streetlight {
+    width: 12%;
+    height: 20%;
+}
 
-    right: 16%;
-    top: 0;
+.hotspot-light {
+    right: 20%;
+    top: 10%;
 
-    width: 9%;
-    height: 58%;
+    width: 12%;
+    height: 55%;
 }
 
 
-/* EVIDÊNCIA JÁ ENCONTRADA */
-
-.scene-object.found {
-
-    cursor: default;
-
-    opacity: .5;
-}
-
-
-.scene-object.found .hotspot {
-
-    animation: none;
-
-    border-color: #8f927f;
-
-    box-shadow: none;
-}
-
-
-.scene-object.found .hotspot::after {
-
-    background: #8f927f;
-}
-
-
-.scene-object.found .object-label {
-
-    opacity: 1;
-
-    color: #a5a899;
-}
-
-
-.scene-object.found .object-label::after {
-
-    content: " ✓";
-
-    color: #b6ad82;
-}
-
-
-/* =================================
-   CONTROLES
-================================= */
+/* CONTROLES */
 
 .scene-controls {
-
     position: absolute;
 
     left: 25px;
@@ -1314,25 +1002,20 @@ body {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
-    gap: 15px;
-
-    z-index: 20;
+    z-index: 25;
 }
 
-
-.scene-controls > button {
-
+.scene-controls button {
     padding: 10px 15px;
 
-    border: 1px solid #716b5d;
+    border: 1px solid #635d53;
 
     background:
-        rgba(20,18,16,.82);
+        rgba(20,18,16,.85);
 
-    color: #d3cbb9;
+    color: #c9c0af;
 
     font-family: "Courier Prime", monospace;
 
@@ -1343,112 +1026,60 @@ body {
     cursor: pointer;
 }
 
-
-.scene-controls > button:hover {
-
+.scene-controls button:hover {
     background: #3b362f;
 }
 
-
-/* STATUS */
-
-.investigation-status {
-
+.clue-counter {
     padding: 9px 13px;
 
     background:
-        rgba(20,18,16,.82);
-
-    color: #c7c0b0;
+        rgba(20,18,16,.85);
 
     font-size: 9px;
 
     letter-spacing: 1px;
 
-    text-align: center;
+    color: #aaa398;
+}
+
+.clue-counter strong {
+    color: #d6bd65;
 }
 
 
-/* =================================
-   BOTÃO CONTINUAR
-================================= */
-
-.continue-button {
-
-    display: none;
-}
-
-
-.continue-button.visible {
-
-    display: block;
-
-    background: #70613b !important;
-
-    color: #eee6d4 !important;
-
-    border-color: #a79663 !important;
-
-    animation:
-        continuePulse 2s infinite;
-}
-
-
-@keyframes continuePulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 0 rgba(214,189,101,0);
-    }
-
-    50% {
-        box-shadow:
-            0 0 18px rgba(214,189,101,.25);
-    }
-}
-
-
-/* =================================
-   MODAL
-================================= */
+/* ================================= */
+/* MODAL EVIDÊNCIA */
+/* ================================= */
 
 .clue-modal {
-
     position: fixed;
 
     inset: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     background:
-        rgba(8,7,6,.78);
+        rgba(8,7,6,.72);
 
     opacity: 0;
 
     visibility: hidden;
 
-    transition:
-        opacity .3s ease,
-        visibility .3s ease;
+    transition: .3s;
 
     z-index: 100;
 }
 
-
 .clue-modal.active {
-
     opacity: 1;
 
     visibility: visible;
 }
 
-
 .clue-card {
-
     position: relative;
 
     width: min(450px,85vw);
@@ -1467,13 +1098,10 @@ body {
     box-shadow:
         0 20px 50px rgba(0,0,0,.5);
 
-    transform:
-        rotate(-1deg);
+    transform: rotate(-1deg);
 }
 
-
 .close-clue {
-
     position: absolute;
 
     right: 15px;
@@ -1490,9 +1118,7 @@ body {
     cursor: pointer;
 }
 
-
 .clue-type {
-
     font-size: 9px;
 
     letter-spacing: 3px;
@@ -1500,9 +1126,7 @@ body {
     color: #8e2929;
 }
 
-
 .clue-card h3 {
-
     margin: 12px 0;
 
     font-family: "Special Elite", serif;
@@ -1512,17 +1136,13 @@ body {
     font-weight: normal;
 }
 
-
 .clue-card p {
-
     font-size: 12px;
 
     line-height: 1.7;
 }
 
-
 .clue-code {
-
     margin-top: 25px;
 
     padding: 10px;
@@ -1536,9 +1156,7 @@ body {
     color: #706758;
 }
 
-
 .confirm-clue {
-
     width: 100%;
 
     margin-top: 20px;
@@ -1558,63 +1176,249 @@ body {
     cursor: pointer;
 }
 
-
 .confirm-clue:hover {
     background: #302920;
 }
 
 
-/* =================================
-   INVESTIGAÇÃO CONCLUÍDA
-================================= */
+/* ================================= */
+/* TELA DE SUSPEITOS */
+/* ================================= */
 
-.investigation-complete {
-
-    position: fixed;
+.suspects-screen {
+    position: absolute;
 
     inset: 0;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     background:
-        rgba(5,5,4,.88);
+        #151311;
 
     opacity: 0;
 
     visibility: hidden;
 
-    transition:
-        opacity .5s ease,
-        visibility .5s ease;
+    transition: .5s;
 
-    z-index: 200;
+    z-index: 40;
 }
 
-
-.investigation-complete.active {
-
+.suspects-screen.active {
     opacity: 1;
 
     visibility: visible;
 }
 
+.suspects-panel {
+    position: relative;
 
-.complete-card {
-
-    width: min(500px,85vw);
+    width: min(900px,90vw);
+    min-height: min(570px,80vh);
 
     padding: 45px;
-
-    text-align: center;
 
     background:
         linear-gradient(
             135deg,
             #e8dfcb,
-            #dcd1b9
+            #d9ceb6
+        );
+
+    color: #292621;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.55);
+
+    transform: rotate(-.5deg);
+}
+
+.suspects-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #968a76;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #706758;
+}
+
+.suspects-panel h2 {
+    margin-top: 35px;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 32px;
+
+    font-weight: normal;
+}
+
+.suspects-description {
+    max-width: 650px;
+
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    color: #61594e;
+}
+
+.suspects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+.suspect-card {
+    min-height: 120px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border: 1px solid #9b8e78;
+
+    background:
+        rgba(244,237,220,.55);
+
+    color: #302b24;
+
+    font-family: "Courier Prime", monospace;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.suspect-card:hover {
+    transform: translateY(-4px);
+
+    background: #eee4cd;
+
+    box-shadow:
+        0 8px 18px rgba(60,50,35,.15);
+}
+
+.suspect-number {
+    display: block;
+
+    margin-bottom: 13px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #8e2929;
+}
+
+.suspect-card strong {
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: normal;
+}
+
+.suspect-card small {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    color: #756c5d;
+}
+
+.back-evidence {
+    margin-top: 30px;
+
+    padding: 10px 15px;
+
+    border: 1px solid #8b806d;
+
+    background: transparent;
+
+    color: #5e564b;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+.back-evidence:hover {
+    background: #d5c9af;
+}
+
+
+/* ================================= */
+/* INTERROGATÓRIO */
+/* ================================= */
+
+.interrogation-screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #25221e,
+            #11100f
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .5s;
+
+    z-index: 50;
+}
+
+.interrogation-screen.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.interrogation-panel {
+    position: relative;
+
+    width: min(850px,90vw);
+    height: min(650px,85vh);
+
+    padding: 30px 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9e0cd,
+            #d9ceb6
         );
 
     color: #292621;
@@ -1622,24 +1426,70 @@ body {
     box-shadow:
         0 25px 60px rgba(0,0,0,.6);
 
-    transform:
-        rotate(-1deg);
+    transform: rotate(-.3deg);
 }
 
 
-.complete-card > span {
+/* Cabeçalho */
+
+.interrogation-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #958976;
 
     font-size: 9px;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
-    color: #756c5d;
+    color: #706758;
+}
+
+.back-suspects {
+    border: none;
+
+    background: none;
+
+    color: #706758;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+.back-suspects:hover {
+    color: #8e2929;
 }
 
 
-.complete-card h2 {
+/* Perfil */
 
-    margin-top: 15px;
+.suspect-profile {
+    margin-top: 25px;
+
+    padding-left: 15px;
+
+    border-left: 3px solid #8e2929;
+}
+
+.profile-number {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #8e2929;
+}
+
+.suspect-profile h2 {
+    margin-top: 5px;
 
     font-family: "Special Elite", serif;
 
@@ -1648,50 +1498,239 @@ body {
     font-weight: normal;
 }
 
+.suspect-profile span {
+    font-size: 9px;
 
-.complete-line {
+    letter-spacing: 2px;
 
-    width: 100%;
-
-    height: 1px;
-
-    margin: 20px 0;
-
-    background: #948a76;
+    color: #716958;
 }
 
 
-.complete-card p {
+/* Conversa */
 
-    font-size: 12px;
+.conversation {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+.message {
+    max-width: 72%;
+
+    padding: 16px 20px;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.08);
+}
+
+.message span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.message p {
+    font-size: 11px;
 
     line-height: 1.7;
 }
 
+.investigator-message {
+    align-self: flex-start;
 
-.complete-note {
+    background:
+        #40382e;
 
-    margin-top: 8px;
+    color: #e9dfcb;
+}
 
+.investigator-message span {
+    color: #c8b98e;
+}
+
+.suspect-message {
+    align-self: flex-end;
+
+    background:
+        #eee5d3;
+
+    border: 1px solid #c2b59e;
+}
+
+.suspect-message span {
     color: #8e2929;
 }
 
 
-.complete-card button {
+/* Escolhas */
 
+.choices-area {
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    bottom: 70px;
+}
+
+.choices-title {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #716958;
+}
+
+.choices {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.choice-button {
     width: 100%;
 
-    margin-top: 25px;
+    padding: 12px 15px;
 
-    padding: 14px;
+    text-align: left;
 
-    border: 1px solid #59472e;
+    border: 1px solid #9b8e78;
+
+    background:
+        rgba(246,239,224,.65);
+
+    color: #393229;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.choice-button:hover {
+    padding-left: 22px;
+
+    border-color: #8e2929;
+
+    background: #eee3cc;
+}
+
+
+/* Rodapé */
+
+.interrogation-footer {
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    bottom: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color: #857b6d;
+}
+
+
+/* ================================= */
+/* ALERTA */
+/* ================================= */
+
+.system-alert {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(8,7,6,.75);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 200;
+}
+
+.system-alert.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.alert-box {
+    width: min(400px,85vw);
+
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        #e8dfcb;
+
+    color: #292621;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    border-top: 4px solid #8e2929;
+}
+
+.alert-box span {
+    font-family: "Special Elite", serif;
+
+    font-size: 22px;
+
+    color: #8e2929;
+}
+
+.alert-box p {
+    margin: 18px 0;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.alert-box button {
+    padding: 10px 20px;
+
+    border: none;
 
     background: #443a2d;
 
-    color: #eee5d1;
+    color: #eee4d1;
 
     font-family: "Courier Prime", monospace;
+
+    font-size: 9px;
 
     letter-spacing: 2px;
 
@@ -1699,73 +1738,53 @@ body {
 }
 
 
-.complete-card button:hover {
+/* ================================= */
+/* RESPONSIVIDADE */
+/* ================================= */
 
-    background: #302920;
-}
-
-
-/* =================================
-   RESPONSIVIDADE
-================================= */
-
-@media (max-width: 700px) {
+@media (max-width:700px) {
 
     .folder {
-
         width: 90vw;
         height: 58vh;
     }
-
 
     .folder-body {
         padding: 30px;
     }
 
-
     .folder-label {
-
         width: 65%;
-
         padding: 16px;
     }
-
 
     .folder-label h1 {
         font-size: 25px;
     }
 
-
     .stamp {
-
         right: 25px;
         top: 50px;
 
         font-size: 11px;
     }
 
-
     .folder-info {
-
         left: 30px;
         bottom: 30px;
 
         gap: 18px;
     }
 
-
     .folder-info span {
         font-size: 7px;
     }
-
 
     .folder-info strong {
         font-size: 8px;
     }
 
-
     .open-button {
-
         right: 25px;
         bottom: 30px;
 
@@ -1774,98 +1793,93 @@ body {
         font-size: 9px;
     }
 
-
     .note,
     .paperclip {
         display: none;
     }
 
-
     .first-page {
-
         padding: 25px;
-
-        overflow: hidden;
     }
-
 
     .page-header h2 {
         font-size: 20px;
     }
 
-
     .report-content {
         gap: 15px;
     }
 
-
     .report-text {
         font-size: 9px;
     }
-
 
     .evidence-photo,
     .photo-placeholder {
         width: 100px;
     }
 
-
     .photo-placeholder {
         height: 85px;
     }
-
 
     .hand-note {
         display: none;
     }
 
-
     .scene {
-
         width: 95vw;
-
-        aspect-ratio: 16 / 10;
+        height: 80vh;
     }
-
 
     .scene-title {
         font-size: 17px;
     }
 
+    .suspects-panel {
+        padding: 25px;
 
-    .scene-header {
-        font-size: 8px;
+        min-height: 75vh;
     }
 
-
-    .scene-controls {
-
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-
-        flex-wrap: wrap;
+    .suspects-grid {
+        gap: 10px;
     }
 
+    .suspect-card {
+        min-height: 100px;
 
-    .investigation-status {
-        display: none;
+        padding: 14px;
     }
 
-
-    .object-label {
-        font-size: 7px;
+    .suspect-card strong {
+        font-size: 12px;
     }
 
+    .interrogation-panel {
+        width: 94vw;
+        height: 85vh;
 
-    .complete-card {
-
-        padding: 30px;
+        padding: 22px;
     }
 
+    .conversation {
+        margin-top: 20px;
+    }
 
-    .complete-card h2 {
-        font-size: 22px;
+    .message {
+        max-width: 85%;
+    }
+
+    .choices-area {
+        left: 22px;
+        right: 22px;
+        bottom: 60px;
+    }
+
+    .interrogation-footer {
+        left: 22px;
+        right: 22px;
     }
 
 }
