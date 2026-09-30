@@ -1,0 +1,1871 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    font-family: "Courier Prime", monospace;
+
+    background: #151312;
+}
+
+
+.investigation {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    perspective: 1800px;
+}
+
+
+/* =================================
+   MESA
+================================= */
+
+.desk {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #302b27 0%,
+            #211e1c 55%,
+            #141211 100%
+        );
+}
+
+
+.desk::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .08;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            #fff 4px
+        );
+}
+
+
+/* =================================
+   PASTA
+================================= */
+
+.folder {
+
+    position: relative;
+
+    width: min(720px, 85vw);
+    height: min(500px, 70vh);
+
+    transform: rotate(-1.5deg);
+
+    transform-style: preserve-3d;
+
+    filter:
+        drop-shadow(
+            0 25px 25px rgba(0,0,0,.45)
+        );
+
+    z-index: 5;
+}
+
+
+/* PAPÉIS */
+
+.paper {
+
+    position: absolute;
+
+    width: 92%;
+    height: 90%;
+
+    left: 4%;
+    top: 5%;
+
+    background: #e8dfca;
+
+    box-shadow:
+        0 8px 15px rgba(0,0,0,.25);
+}
+
+
+.paper-one {
+    transform: rotate(2deg);
+}
+
+
+.paper-two {
+    transform: rotate(-3deg);
+}
+
+
+/* INTERIOR */
+
+.folder-inside {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a88d5a,
+            #b99e68
+        );
+
+    border-radius:
+        5px 7px 12px 8px;
+
+    z-index: 2;
+
+    overflow: hidden;
+}
+
+
+/* PÁGINA */
+
+.first-page {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 38px 45px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #f0e9d8,
+            #e7deca
+        );
+
+    color: #292621;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.2);
+
+    opacity: 0;
+
+    transform:
+        translateY(45px)
+        scale(.94)
+        rotate(-1deg);
+
+    transition:
+        opacity .8s ease .65s,
+        transform .9s cubic-bezier(.2,.8,.2,1) .65s;
+}
+
+
+.folder.open .first-page {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(-1deg);
+}
+
+
+/* CABEÇALHO */
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+
+.document-type {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #756c5d;
+}
+
+
+.page-header h2 {
+
+    font-family: "Special Elite", serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+}
+
+
+.document-number {
+
+    font-size: 11px;
+
+    color: #756c5d;
+}
+
+
+.page-line {
+
+    width: 100%;
+    height: 1px;
+
+    margin: 18px 0 25px;
+
+    background: #9a907e;
+}
+
+
+.report-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 45px;
+}
+
+
+.report-text {
+
+    max-width: 390px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.report-text strong {
+    color: #514a40;
+}
+
+
+/* FOTO */
+
+.evidence-photo {
+
+    width: 170px;
+
+    flex-shrink: 0;
+
+    transform: rotate(3deg);
+}
+
+
+.photo-placeholder {
+
+    width: 170px;
+    height: 135px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #363532,
+            #171716
+        );
+
+    color: #d8d1bf;
+
+    box-shadow:
+        0 5px 8px rgba(0,0,0,.35);
+}
+
+
+.photo-placeholder span {
+
+    font-family: "Special Elite", serif;
+
+    font-size: 22px;
+}
+
+
+.photo-placeholder small {
+
+    margin-top: 5px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.photo-caption {
+
+    margin-top: 7px;
+
+    text-align: center;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    color: #716958;
+}
+
+
+/* ANOTAÇÃO */
+
+.hand-note {
+
+    position: absolute;
+
+    right: 45px;
+    bottom: 55px;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 15px;
+
+    line-height: 1.1;
+
+    color: #8a2929;
+
+    transform: rotate(-7deg);
+}
+
+
+/* CARIMBO */
+
+.page-stamp {
+
+    position: absolute;
+
+    left: 40px;
+    bottom: 40px;
+
+    padding: 5px 10px;
+
+    border: 2px solid #8e2929;
+
+    color: #8e2929;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transform: rotate(-5deg);
+}
+
+
+/* RODAPÉ */
+
+.page-footer {
+
+    position: absolute;
+
+    bottom: 13px;
+    left: 45px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color: #827867;
+}
+
+
+/* =================================
+   CAPA
+================================= */
+
+.folder-cover {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-origin: top center;
+
+    transform-style: preserve-3d;
+
+    z-index: 10;
+
+    transition:
+        transform 1.25s cubic-bezier(.65,0,.35,1);
+}
+
+
+.folder.open .folder-cover {
+
+    transform:
+        rotateX(-115deg);
+}
+
+
+.folder-cover .folder-label,
+.folder-cover .stamp,
+.folder-cover .folder-info,
+.folder-cover .open-button {
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+.folder.open .folder-cover .folder-label,
+.folder.open .folder-cover .stamp,
+.folder.open .folder-cover .folder-info,
+.folder.open .folder-cover .open-button {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* ABA */
+
+.folder-tab {
+
+    position: absolute;
+
+    top: -45px;
+    left: 35px;
+
+    width: 210px;
+    height: 70px;
+
+    background: #b79c67;
+
+    border-radius:
+        12px 12px 0 0;
+}
+
+
+.folder-tab span {
+
+    position: absolute;
+
+    left: 25px;
+    bottom: 13px;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #604f31;
+}
+
+
+.folder.open .folder-tab span {
+    opacity: 0;
+}
+
+
+/* CORPO */
+
+.folder-body {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 55px;
+
+    background:
+        linear-gradient(
+            115deg,
+            #c8ae75,
+            #b99d65 55%,
+            #a88c57
+        );
+
+    border-radius:
+        5px 7px 12px 8px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.2),
+        inset 0 -5px 20px rgba(70,45,15,.12);
+}
+
+
+.folder-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .10;
+
+    background-image:
+        radial-gradient(
+            rgba(70,50,20,.5) .5px,
+            transparent .5px
+        );
+
+    background-size: 5px 5px;
+
+    pointer-events: none;
+}
+
+
+/* ETIQUETA */
+
+.folder-label {
+
+    position: relative;
+
+    width: 360px;
+
+    padding: 22px 25px;
+
+    background: #e9dfc9;
+
+    transform: rotate(-1deg);
+
+    box-shadow:
+        0 5px 10px rgba(0,0,0,.18);
+
+    z-index: 2;
+}
+
+
+.label-small {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #645b4c;
+}
+
+
+.folder-label h1 {
+
+    font-family: "Special Elite", serif;
+
+    font-size: clamp(30px,5vw,44px);
+
+    font-weight: normal;
+
+    letter-spacing: 2px;
+
+    color: #292621;
+}
+
+
+.label-line {
+
+    width: 100%;
+    height: 1px;
+
+    margin: 13px 0;
+
+    background: #817560;
+}
+
+
+.label-info {
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: #8d2424;
+}
+
+
+/* CARIMBO */
+
+.stamp {
+
+    position: absolute;
+
+    top: 75px;
+    right: 65px;
+
+    padding: 9px 18px;
+
+    border: 3px solid #8e2929;
+
+    color: #8e2929;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+
+    transform: rotate(8deg);
+
+    opacity: .82;
+}
+
+
+/* INFORMAÇÕES */
+
+.folder-info {
+
+    position: absolute;
+
+    left: 55px;
+    bottom: 75px;
+
+    display: flex;
+
+    gap: 45px;
+
+    z-index: 3;
+}
+
+
+.folder-info div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.folder-info span {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #68583e;
+}
+
+
+.folder-info strong {
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    font-weight: normal;
+
+    color: #302a20;
+}
+
+
+/* BOTÃO */
+
+.open-button {
+
+    position: absolute;
+
+    right: 55px;
+    bottom: 65px;
+
+    padding: 16px 25px;
+
+    border: 1px solid #59472e;
+
+    background: #8e7349;
+
+    color: #f1e7d1;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+
+    z-index: 5;
+}
+
+
+.open-button:hover {
+
+    transform: translateY(-3px);
+
+    background: #745b38;
+
+    box-shadow:
+        0 7px 12px rgba(0,0,0,.2);
+}
+
+
+.button-icon {
+
+    margin-right: 8px;
+
+    font-size: 18px;
+}
+
+
+/* =================================
+   CLIPE
+================================= */
+
+.paperclip {
+
+    position: absolute;
+
+    width: 24px;
+    height: 82px;
+
+    right: 14%;
+    top: 15%;
+
+    border: 3px solid #77756f;
+
+    border-radius:
+        16px 16px 12px 12px;
+
+    transform: rotate(19deg);
+
+    z-index: 10;
+
+    opacity: .9;
+}
+
+
+/* =================================
+   POST-IT
+================================= */
+
+.note {
+
+    position: absolute;
+
+    right: 7%;
+    bottom: 9%;
+
+    width: 135px;
+    min-height: 105px;
+
+    padding: 28px 18px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e4cf72,
+            #d5bd5d
+        );
+
+    color: #594b28;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    transform: rotate(6deg);
+
+    box-shadow:
+        4px 7px 12px rgba(0,0,0,.28);
+
+    z-index: 8;
+}
+
+
+/* =================================
+   DATA
+================================= */
+
+.date {
+
+    position: absolute;
+
+    left: 6%;
+    bottom: 5%;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #837b73;
+
+    opacity: .7;
+
+    z-index: 2;
+}
+
+
+/* =================================
+   NAVEGAÇÃO
+================================= */
+
+.navigation {
+
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(8px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    color: #aaa39a;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+
+    z-index: 20;
+}
+
+
+.navigation.visible {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.nav-button {
+
+    border: none;
+
+    background: none;
+
+    color: #aaa39a;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.nav-button:hover {
+
+    color: #e6dfd2;
+
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   TELA DE INVESTIGAÇÃO
+================================= */
+
+.investigation-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #080908;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+    z-index: 30;
+}
+
+
+.investigation-screen.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* CENA */
+
+.scene {
+
+    position: relative;
+
+    width: min(1200px, 94vw);
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid #4d4b44;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.65);
+}
+
+
+/* IMAGEM */
+
+.crime-scene-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ESCURECIMENTO */
+
+.scene-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.30),
+            transparent 35%,
+            rgba(0,0,0,.22)
+        );
+
+    pointer-events: none;
+}
+
+
+/* CABEÇALHO */
+
+.scene-header {
+
+    position: absolute;
+
+    top: 20px;
+    left: 25px;
+    right: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #ddd7ca;
+
+    text-shadow:
+        0 2px 5px #000;
+
+    z-index: 10;
+}
+
+
+.scene-title {
+
+    position: absolute;
+
+    top: 52px;
+    left: 25px;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 23px;
+
+    color: #eee7d7;
+
+    text-shadow:
+        0 2px 6px #000;
+
+    z-index: 10;
+}
+
+
+/* =================================
+   ÁREAS CLICÁVEIS
+================================= */
+
+.scene-object {
+
+    position: absolute;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 15;
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+
+/* PONTO DE INVESTIGAÇÃO */
+
+.hotspot {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 24px;
+    height: 24px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border: 2px solid #d7bd65;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 5px rgba(215,189,101,.12),
+        0 0 15px rgba(215,189,101,.5);
+
+    animation:
+        hotspotPulse 1.8s infinite;
+}
+
+
+.hotspot::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background: #d7bd65;
+
+    border-radius: 50%;
+}
+
+
+@keyframes hotspotPulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 0 5px rgba(215,189,101,.12),
+            0 0 15px rgba(215,189,101,.5);
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 0 12px rgba(215,189,101,.03),
+            0 0 25px rgba(215,189,101,.8);
+    }
+}
+
+
+/* TEXTO */
+
+.object-label {
+
+    position: absolute;
+
+    left: 50%;
+    top: calc(50% + 25px);
+
+    transform:
+        translateX(-50%);
+
+    padding: 5px 8px;
+
+    background:
+        rgba(10,9,8,.78);
+
+    color: #ddd4c1;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    transition:
+        opacity .2s ease;
+}
+
+
+.scene-object:hover .object-label {
+    opacity: 1;
+}
+
+
+.scene-object:hover .hotspot {
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.2);
+}
+
+
+/* ÁREAS */
+
+.bench {
+
+    left: 5%;
+    top: 54%;
+
+    width: 22%;
+    height: 25%;
+}
+
+
+.body {
+
+    left: 27%;
+    top: 56%;
+
+    width: 31%;
+    height: 23%;
+}
+
+
+.knife {
+
+    left: 65%;
+    top: 63%;
+
+    width: 14%;
+    height: 12%;
+}
+
+
+.trash {
+
+    right: 5%;
+    top: 50%;
+
+    width: 13%;
+    height: 30%;
+}
+
+
+.streetlight {
+
+    right: 16%;
+    top: 0;
+
+    width: 9%;
+    height: 58%;
+}
+
+
+/* EVIDÊNCIA JÁ ENCONTRADA */
+
+.scene-object.found {
+
+    cursor: default;
+
+    opacity: .5;
+}
+
+
+.scene-object.found .hotspot {
+
+    animation: none;
+
+    border-color: #8f927f;
+
+    box-shadow: none;
+}
+
+
+.scene-object.found .hotspot::after {
+
+    background: #8f927f;
+}
+
+
+.scene-object.found .object-label {
+
+    opacity: 1;
+
+    color: #a5a899;
+}
+
+
+.scene-object.found .object-label::after {
+
+    content: " ✓";
+
+    color: #b6ad82;
+}
+
+
+/* =================================
+   CONTROLES
+================================= */
+
+.scene-controls {
+
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+    bottom: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    z-index: 20;
+}
+
+
+.scene-controls > button {
+
+    padding: 10px 15px;
+
+    border: 1px solid #716b5d;
+
+    background:
+        rgba(20,18,16,.82);
+
+    color: #d3cbb9;
+
+    font-family: "Courier Prime", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+.scene-controls > button:hover {
+
+    background: #3b362f;
+}
+
+
+/* STATUS */
+
+.investigation-status {
+
+    padding: 9px 13px;
+
+    background:
+        rgba(20,18,16,.82);
+
+    color: #c7c0b0;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+}
+
+
+/* =================================
+   BOTÃO CONTINUAR
+================================= */
+
+.continue-button {
+
+    display: none;
+}
+
+
+.continue-button.visible {
+
+    display: block;
+
+    background: #70613b !important;
+
+    color: #eee6d4 !important;
+
+    border-color: #a79663 !important;
+
+    animation:
+        continuePulse 2s infinite;
+}
+
+
+@keyframes continuePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(214,189,101,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 18px rgba(214,189,101,.25);
+    }
+}
+
+
+/* =================================
+   MODAL
+================================= */
+
+.clue-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(8,7,6,.78);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+    z-index: 100;
+}
+
+
+.clue-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.clue-card {
+
+    position: relative;
+
+    width: min(450px,85vw);
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8dfcb,
+            #dcd1b9
+        );
+
+    color: #292621;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    transform:
+        rotate(-1deg);
+}
+
+
+.close-clue {
+
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 25px;
+
+    color: #655c4e;
+
+    cursor: pointer;
+}
+
+
+.clue-type {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #8e2929;
+}
+
+
+.clue-card h3 {
+
+    margin: 12px 0;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+}
+
+
+.clue-card p {
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.clue-code {
+
+    margin-top: 25px;
+
+    padding: 10px;
+
+    border: 1px dashed #8b806d;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #706758;
+}
+
+
+.confirm-clue {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border: none;
+
+    background: #443a2d;
+
+    color: #e8dfcb;
+
+    font-family: "Courier Prime", monospace;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.confirm-clue:hover {
+    background: #302920;
+}
+
+
+/* =================================
+   INVESTIGAÇÃO CONCLUÍDA
+================================= */
+
+.investigation-complete {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(5,5,4,.88);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+
+    z-index: 200;
+}
+
+
+.investigation-complete.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.complete-card {
+
+    width: min(500px,85vw);
+
+    padding: 45px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8dfcb,
+            #dcd1b9
+        );
+
+    color: #292621;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.6);
+
+    transform:
+        rotate(-1deg);
+}
+
+
+.complete-card > span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #756c5d;
+}
+
+
+.complete-card h2 {
+
+    margin-top: 15px;
+
+    font-family: "Special Elite", serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+}
+
+
+.complete-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin: 20px 0;
+
+    background: #948a76;
+}
+
+
+.complete-card p {
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.complete-note {
+
+    margin-top: 8px;
+
+    color: #8e2929;
+}
+
+
+.complete-card button {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: 1px solid #59472e;
+
+    background: #443a2d;
+
+    color: #eee5d1;
+
+    font-family: "Courier Prime", monospace;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.complete-card button:hover {
+
+    background: #302920;
+}
+
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 700px) {
+
+    .folder {
+
+        width: 90vw;
+        height: 58vh;
+    }
+
+
+    .folder-body {
+        padding: 30px;
+    }
+
+
+    .folder-label {
+
+        width: 65%;
+
+        padding: 16px;
+    }
+
+
+    .folder-label h1 {
+        font-size: 25px;
+    }
+
+
+    .stamp {
+
+        right: 25px;
+        top: 50px;
+
+        font-size: 11px;
+    }
+
+
+    .folder-info {
+
+        left: 30px;
+        bottom: 30px;
+
+        gap: 18px;
+    }
+
+
+    .folder-info span {
+        font-size: 7px;
+    }
+
+
+    .folder-info strong {
+        font-size: 8px;
+    }
+
+
+    .open-button {
+
+        right: 25px;
+        bottom: 30px;
+
+        padding: 12px 15px;
+
+        font-size: 9px;
+    }
+
+
+    .note,
+    .paperclip {
+        display: none;
+    }
+
+
+    .first-page {
+
+        padding: 25px;
+
+        overflow: hidden;
+    }
+
+
+    .page-header h2 {
+        font-size: 20px;
+    }
+
+
+    .report-content {
+        gap: 15px;
+    }
+
+
+    .report-text {
+        font-size: 9px;
+    }
+
+
+    .evidence-photo,
+    .photo-placeholder {
+        width: 100px;
+    }
+
+
+    .photo-placeholder {
+        height: 85px;
+    }
+
+
+    .hand-note {
+        display: none;
+    }
+
+
+    .scene {
+
+        width: 95vw;
+
+        aspect-ratio: 16 / 10;
+    }
+
+
+    .scene-title {
+        font-size: 17px;
+    }
+
+
+    .scene-header {
+        font-size: 8px;
+    }
+
+
+    .scene-controls {
+
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .investigation-status {
+        display: none;
+    }
+
+
+    .object-label {
+        font-size: 7px;
+    }
+
+
+    .complete-card {
+
+        padding: 30px;
+    }
+
+
+    .complete-card h2 {
+        font-size: 22px;
+    }
+
+}

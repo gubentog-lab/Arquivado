@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Arquivo Confidencial — Caso 017</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<main class="investigation">
+
+    <div class="desk"></div>
+
+
+    <!-- =========================
+         PASTA
+    ========================== -->
+
+    <section class="folder">
+
+        <div class="paper paper-one"></div>
+        <div class="paper paper-two"></div>
+
+
+        <div class="folder-inside">
+
+            <article class="first-page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="document-type">
+                            ARQUIVO DE INVESTIGAÇÃO
+                        </span>
+
+                        <h2>RELATÓRIO INICIAL</h2>
+
+                    </div>
+
+                    <span class="document-number">
+                        Nº 017-A
+                    </span>
+
+                </div>
+
+
+                <div class="page-line"></div>
+
+
+                <div class="report-content">
+
+                    <div class="report-text">
+
+                        <p>
+                            <strong>DATA:</strong>
+                            14 / 09 / 2026
+                        </p>
+
+                        <p>
+                            <strong>LOCAL:</strong>
+                            Praça ███████████
+                        </p>
+
+                        <p>
+                            <strong>STATUS:</strong>
+                            EM INVESTIGAÇÃO
+                        </p>
+
+                        <p>
+                            <strong>ARMA:</strong>
+                            FACA
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Um corpo foi encontrado durante a madrugada
+                            em uma praça pública.
+                        </p>
+
+                        <p>
+                            A vítima apresentava ferimentos compatíveis
+                            com uma arma branca. Uma faca foi encontrada
+                            nas proximidades do local.
+                        </p>
+
+                        <p>
+                            Cinco pessoas foram identificadas como
+                            possíveis suspeitos.
+                        </p>
+
+                    </div>
+
+
+                    <div class="evidence-photo">
+
+                        <div class="photo-placeholder">
+
+                            <span>PRAÇA</span>
+
+                            <small>
+                                LOCAL #01
+                            </small>
+
+                        </div>
+
+                        <div class="photo-caption">
+                            LOCAL DA OCORRÊNCIA
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hand-note">
+                    começar pelo<br>
+                    local do crime
+                </div>
+
+
+                <div class="page-stamp">
+                    RESTRITO
+                </div>
+
+
+                <div class="page-footer">
+                    DOCUMENTO 01 • ARQUIVO CONFIDENCIAL
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- CAPA -->
+
+        <div class="folder-cover">
+
+            <div class="folder-tab">
+
+                <span>
+                    ARQUIVO
+                </span>
+
+            </div>
+
+
+            <div class="folder-body">
+
+                <div class="folder-label">
+
+                    <span class="label-small">
+                        DEPARTAMENTO DE INVESTIGAÇÃO
+                    </span>
+
+                    <h1>
+                        CASO Nº 017
+                    </h1>
+
+                    <div class="label-line"></div>
+
+                    <span class="label-info">
+                        ARQUIVO CONFIDENCIAL
+                    </span>
+
+                </div>
+
+
+                <div class="stamp">
+                    CONFIDENCIAL
+                </div>
+
+
+                <div class="folder-info">
+
+                    <div>
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong>
+                            EM INVESTIGAÇÃO
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            CLASSIFICAÇÃO
+                        </span>
+
+                        <strong>
+                            RESTRITO
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            ARQUIVO
+                        </span>
+
+                        <strong>
+                            017-A
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="open-button"
+                    id="openCase"
+                >
+
+                    <span class="button-icon">
+                        ⌕
+                    </span>
+
+                    ABRIR CASO
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ELEMENTOS DA MESA -->
+
+    <div class="paperclip"></div>
+
+    <div class="note">
+        NÃO TOCAR
+    </div>
+
+    <div class="date">
+        23 / 09 / 2026
+    </div>
+
+
+    <!-- NAVEGAÇÃO -->
+
+    <nav class="navigation">
+
+        <button
+            class="nav-button"
+            id="previousPage"
+        >
+            ← ANTERIOR
+        </button>
+
+
+        <span id="pageCounter">
+            01 / 06
+        </span>
+
+
+        <button
+            class="nav-button"
+            id="nextPage"
+        >
+            PRÓXIMO →
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         TELA DO LOCAL
+    ========================== -->
+
+    <div
+        class="investigation-screen"
+        id="investigationScreen"
+    >
+
+        <div class="scene">
+
+
+            <!-- IMAGEM DA CENA -->
+
+            <img
+                src="local-crime-scene.jfif"
+                class="crime-scene-image"
+                alt="Local da ocorrência"
+            >
+
+
+            <!-- ESCURECIMENTO -->
+
+            <div class="scene-overlay"></div>
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="scene-header">
+
+                <span>
+                    CASO Nº 017
+                </span>
+
+                <span>
+                    PRAÇA — 02:17
+                </span>
+
+            </div>
+
+
+            <div class="scene-title">
+                LOCAL DA OCORRÊNCIA
+            </div>
+
+
+            <!-- =====================
+                 ÁREAS CLICÁVEIS
+            ====================== -->
+
+
+            <!-- BANCO -->
+
+            <button
+                class="scene-object bench"
+                data-clue="bench"
+                aria-label="Investigar banco"
+            >
+
+                <span class="hotspot"></span>
+
+                <span class="object-label">
+                    BANCO
+                </span>
+
+            </button>
+
+
+            <!-- CORPO -->
+
+            <button
+                class="scene-object body"
+                data-clue="body"
+                aria-label="Investigar corpo"
+            >
+
+                <span class="hotspot"></span>
+
+                <span class="object-label">
+                    VÍTIMA
+                </span>
+
+            </button>
+
+
+            <!-- FACA -->
+
+            <button
+                class="scene-object knife"
+                data-clue="knife"
+                aria-label="Investigar faca"
+            >
+
+                <span class="hotspot"></span>
+
+                <span class="object-label">
+                    FACA
+                </span>
+
+            </button>
+
+
+            <!-- LIXEIRA -->
+
+            <button
+                class="scene-object trash"
+                data-clue="trash"
+                aria-label="Investigar lixeira"
+            >
+
+                <span class="hotspot"></span>
+
+                <span class="object-label">
+                    LIXEIRA
+                </span>
+
+            </button>
+
+
+            <!-- POSTE -->
+
+            <button
+                class="scene-object streetlight"
+                data-clue="light"
+                aria-label="Investigar poste"
+            >
+
+                <span class="hotspot"></span>
+
+                <span class="object-label">
+                    POSTE
+                </span>
+
+            </button>
+
+
+            <!-- CONTROLES -->
+
+            <div class="scene-controls">
+
+                <button id="backToFile">
+                    ← VOLTAR AO ARQUIVO
+                </button>
+
+
+                <!-- MENSAGEM DE STATUS -->
+
+                <div
+                    class="investigation-status"
+                    id="investigationStatus"
+                >
+                    INVESTIGAÇÃO EM ANDAMENTO
+                </div>
+
+
+                <!-- BOTÃO BLOQUEADO -->
+
+                <button
+                    class="continue-button"
+                    id="continueInvestigation"
+                >
+                    CONTINUAR INVESTIGAÇÃO →
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL DAS PISTAS
+    ========================== -->
+
+    <div
+        class="clue-modal"
+        id="clueModal"
+    >
+
+        <div class="clue-card">
+
+            <button
+                class="close-clue"
+                id="closeClue"
+            >
+                ×
+            </button>
+
+
+            <span class="clue-type">
+                EVIDÊNCIA ENCONTRADA
+            </span>
+
+
+            <h3 id="clueTitle">
+                Evidência
+            </h3>
+
+
+            <p id="clueDescription">
+                Descrição da evidência.
+            </p>
+
+
+            <div
+                class="clue-code"
+                id="clueCode"
+            >
+                EVIDÊNCIA #01
+            </div>
+
+
+            <button
+                class="confirm-clue"
+                id="confirmClue"
+            >
+                ARQUIVAR EVIDÊNCIA
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         INVESTIGAÇÃO CONCLUÍDA
+    ========================== -->
+
+    <div
+        class="investigation-complete"
+        id="investigationComplete"
+    >
+
+        <div class="complete-card">
+
+            <span>
+                ARQUIVO Nº 017-A
+            </span>
+
+            <h2>
+                EVIDÊNCIAS ANALISADAS
+            </h2>
+
+            <div class="complete-line"></div>
+
+            <p>
+                Todas as evidências relevantes encontradas
+                no local foram registradas.
+            </p>
+
+            <p class="complete-note">
+                A investigação pode prosseguir.
+            </p>
+
+
+            <button
+                id="startInterviews"
+            >
+                INICIAR ENTREVISTAS →
+            </button>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
