@@ -7,38 +7,29 @@
 body {
     width: 100%;
     min-height: 100vh;
-
     overflow: hidden;
-
     font-family: "Courier Prime", monospace;
-
     background: #151312;
+}
+
+button {
+    font-family: inherit;
 }
 
 .investigation {
     position: relative;
-
     width: 100%;
     height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
     perspective: 1800px;
 }
-
-
-/* ================================= */
-/* MESA */
-/* ================================= */
 
 .desk {
     position: absolute;
     inset: 0;
-
     background:
         radial-gradient(
             ellipse at center,
@@ -50,12 +41,9 @@ body {
 
 .desk::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
     opacity: .08;
-
     background-image:
         repeating-linear-gradient(
             0deg,
@@ -66,41 +54,28 @@ body {
 }
 
 
-/* ================================= */
-/* PASTA */
-/* ================================= */
+/* =========================================
+   PASTA
+========================================= */
 
 .folder {
     position: relative;
-
     width: min(720px, 85vw);
     height: min(500px, 70vh);
-
     transform: rotate(-1.5deg);
-
     transform-style: preserve-3d;
-
-    filter:
-        drop-shadow(
-            0 25px 25px rgba(0,0,0,.45)
-        );
-
+    filter: drop-shadow(0 25px 25px rgba(0,0,0,.45));
     z-index: 5;
 }
 
 .paper {
     position: absolute;
-
     width: 92%;
     height: 90%;
-
     left: 4%;
     top: 5%;
-
     background: #e8dfca;
-
-    box-shadow:
-        0 8px 15px rgba(0,0,0,.25);
+    box-shadow: 0 8px 15px rgba(0,0,0,.25);
 }
 
 .paper-one {
@@ -114,56 +89,28 @@ body {
 .folder-inside {
     position: absolute;
     inset: 0;
-
     padding: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #a88d5a,
-            #b99e68
-        );
-
-    border-radius:
-        5px 7px 12px 8px;
-
+    background: linear-gradient(135deg,#a88d5a,#b99e68);
+    border-radius: 5px 7px 12px 8px;
     z-index: 2;
-
     overflow: hidden;
 }
 
 
-/* ================================= */
-/* PRIMEIRA PÁGINA */
-/* ================================= */
+/* =========================================
+   PÁGINA
+========================================= */
 
 .first-page {
     position: relative;
-
     width: 100%;
     height: 100%;
-
     padding: 38px 45px;
-
-    background:
-        linear-gradient(
-            100deg,
-            #f0e9d8,
-            #e7deca
-        );
-
+    background: linear-gradient(100deg,#f0e9d8,#e7deca);
     color: #292621;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.2);
-
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
     opacity: 0;
-
-    transform:
-        translateY(45px)
-        scale(.94)
-        rotate(-1deg);
-
+    transform: translateY(45px) scale(.94) rotate(-1deg);
     transition:
         opacity .8s ease .65s,
         transform .9s cubic-bezier(.2,.8,.2,1) .65s;
@@ -171,11 +118,7 @@ body {
 
 .folder.open .first-page {
     opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1)
-        rotate(-1deg);
+    transform: translateY(0) scale(1) rotate(-1deg);
 }
 
 .page-header {
@@ -186,51 +129,39 @@ body {
 
 .document-type {
     display: block;
-
     margin-bottom: 8px;
-
     font-size: 9px;
-
     letter-spacing: 2px;
-
     color: #756c5d;
 }
 
 .page-header h2 {
     font-family: "Special Elite", serif;
-
     font-size: 28px;
-
     font-weight: normal;
-
     letter-spacing: 1px;
 }
 
 .document-number {
     font-size: 11px;
-
     color: #756c5d;
 }
 
 .page-line {
     width: 100%;
     height: 1px;
-
     margin: 18px 0 25px;
-
     background: #9a907e;
 }
 
 .report-content {
     display: flex;
     justify-content: space-between;
-
     gap: 45px;
 }
 
 .report-text {
     max-width: 390px;
-
     font-size: 12px;
     line-height: 1.7;
 }
@@ -241,127 +172,86 @@ body {
 
 .evidence-photo {
     width: 170px;
-
     flex-shrink: 0;
-
     transform: rotate(3deg);
 }
 
 .photo-placeholder {
     width: 170px;
     height: 135px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #363532,
-            #171716
-        );
-
+    background: linear-gradient(135deg,#363532,#171716);
     color: #d8d1bf;
-
-    box-shadow:
-        0 5px 8px rgba(0,0,0,.35);
+    box-shadow: 0 5px 8px rgba(0,0,0,.35);
 }
 
 .photo-placeholder span {
     font-family: "Special Elite", serif;
-
     font-size: 22px;
 }
 
 .photo-placeholder small {
     margin-top: 5px;
-
     font-size: 8px;
-
     letter-spacing: 2px;
 }
 
 .photo-caption {
     margin-top: 7px;
-
     text-align: center;
-
     font-size: 8px;
-
     letter-spacing: 1px;
-
     color: #716958;
 }
 
 .hand-note {
     position: absolute;
-
     right: 45px;
     bottom: 55px;
-
     font-family: "Special Elite", serif;
-
     font-size: 15px;
     line-height: 1.1;
-
     color: #8a2929;
-
     transform: rotate(-7deg);
 }
 
 .page-stamp {
     position: absolute;
-
     left: 40px;
     bottom: 40px;
-
     padding: 5px 10px;
-
     border: 2px solid #8e2929;
-
     color: #8e2929;
-
     font-family: "Special Elite", serif;
-
     font-size: 11px;
-
     letter-spacing: 2px;
-
     transform: rotate(-5deg);
 }
 
 .page-footer {
     position: absolute;
-
     bottom: 13px;
     left: 45px;
-
     font-size: 7px;
-
     letter-spacing: 2px;
-
     color: #827867;
 }
 
 
-/* ================================= */
-/* CAPA */
-/* ================================= */
+/* =========================================
+   CAPA
+========================================= */
 
 .folder-cover {
     position: absolute;
     inset: 0;
-
     transform-origin: top center;
-
     transform-style: preserve-3d;
-
     z-index: 10;
-
-    transition:
-        transform 1.25s cubic-bezier(.65,0,.35,1);
+    transition: transform 1.25s cubic-bezier(.65,0,.35,1);
 }
 
 .folder.open .folder-cover {
@@ -372,9 +262,7 @@ body {
 .folder-cover .stamp,
 .folder-cover .folder-info,
 .folder-cover .open-button {
-    transition:
-        opacity .35s ease,
-        visibility .35s ease;
+    transition: opacity .35s ease, visibility .35s ease;
 }
 
 .folder.open .folder-cover .folder-label,
@@ -382,39 +270,27 @@ body {
 .folder.open .folder-cover .folder-info,
 .folder.open .folder-cover .open-button {
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 }
 
 .folder-tab {
     position: absolute;
-
     top: -45px;
     left: 35px;
-
     width: 210px;
     height: 70px;
-
     background: #b79c67;
-
-    border-radius:
-        12px 12px 0 0;
+    border-radius: 12px 12px 0 0;
 }
 
 .folder-tab span {
     position: absolute;
-
     left: 25px;
     bottom: 13px;
-
     font-family: "Special Elite", serif;
-
     font-size: 13px;
-
     letter-spacing: 3px;
-
     color: #604f31;
 }
 
@@ -425,9 +301,7 @@ body {
 .folder-body {
     position: absolute;
     inset: 0;
-
     padding: 55px;
-
     background:
         linear-gradient(
             115deg,
@@ -435,10 +309,7 @@ body {
             #b99d65 55%,
             #a88c57
         );
-
-    border-radius:
-        5px 7px 12px 8px;
-
+    border-radius: 5px 7px 12px 8px;
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.2),
         inset 0 -5px 20px rgba(70,45,15,.12);
@@ -446,291 +317,301 @@ body {
 
 .folder-body::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
     opacity: .10;
-
     background-image:
         radial-gradient(
             rgba(70,50,20,.5) .5px,
             transparent .5px
         );
-
     background-size: 5px 5px;
-
     pointer-events: none;
 }
 
 .folder-label {
     position: relative;
-
     width: 360px;
-
     padding: 22px 25px;
-
     background: #e9dfc9;
-
     transform: rotate(-1deg);
-
-    box-shadow:
-        0 5px 10px rgba(0,0,0,.18);
-
+    box-shadow: 0 5px 10px rgba(0,0,0,.18);
     z-index: 2;
 }
 
 .label-small {
     display: block;
-
     margin-bottom: 9px;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     color: #645b4c;
 }
 
 .folder-label h1 {
     font-family: "Special Elite", serif;
-
     font-size: clamp(30px,5vw,44px);
-
     font-weight: normal;
-
     letter-spacing: 2px;
-
     color: #292621;
 }
 
 .label-line {
     width: 100%;
     height: 1px;
-
     margin: 13px 0;
-
     background: #817560;
 }
 
 .label-info {
     font-size: 12px;
-
     letter-spacing: 4px;
-
     color: #8d2424;
 }
 
 .stamp {
     position: absolute;
-
     top: 75px;
     right: 65px;
-
     padding: 9px 18px;
-
     border: 3px solid #8e2929;
-
     color: #8e2929;
-
     font-family: "Special Elite", serif;
-
     font-size: 17px;
-
     letter-spacing: 3px;
-
     transform: rotate(8deg);
-
     opacity: .82;
 }
 
 .folder-info {
     position: absolute;
-
     left: 55px;
     bottom: 75px;
-
     display: flex;
-
     gap: 45px;
-
     z-index: 3;
 }
 
 .folder-info div {
     display: flex;
     flex-direction: column;
-
     gap: 5px;
 }
 
 .folder-info span {
     font-size: 9px;
-
     letter-spacing: 2px;
-
     color: #68583e;
 }
 
 .folder-info strong {
     font-size: 12px;
-
     letter-spacing: 1px;
-
     font-weight: normal;
-
     color: #302a20;
 }
 
 .open-button {
     position: absolute;
-
     right: 55px;
     bottom: 65px;
-
     padding: 16px 25px;
-
     border: 1px solid #59472e;
-
     background: #8e7349;
-
     color: #f1e7d1;
-
     font-family: "Courier Prime", monospace;
-
     font-size: 13px;
-
     letter-spacing: 2px;
-
     cursor: pointer;
-
     z-index: 5;
-
     transition: .2s;
 }
 
 .open-button:hover {
     transform: translateY(-3px);
-
     background: #745b38;
-
-    box-shadow:
-        0 7px 12px rgba(0,0,0,.2);
+    box-shadow: 0 7px 12px rgba(0,0,0,.2);
 }
 
 .button-icon {
     margin-right: 8px;
-
     font-size: 18px;
 }
 
 
-/* ================================= */
-/* ELEMENTOS DA MESA */
-/* ================================= */
+/* =========================================
+   CLIPE — NOVO
+========================================= */
 
 .paperclip {
     position: absolute;
 
-    width: 24px;
-    height: 82px;
+    /*
+       Posiciona o clipe próximo ao canto superior
+       direito da pasta, em vez de deixá-lo perdido
+       no fundo da tela.
+    */
+    right: calc(50% - 385px);
+    top: calc(50% - 275px);
 
-    right: 14%;
-    top: 15%;
+    width: 42px;
+    height: 150px;
 
-    border: 3px solid #77756f;
+    z-index: 15;
 
-    border-radius:
-        16px 16px 12px 12px;
+    transform: rotate(13deg);
 
-    transform: rotate(19deg);
+    filter:
+        drop-shadow(2px 4px 3px rgba(0,0,0,.45));
 
-    z-index: 10;
-
-    opacity: .9;
+    pointer-events: none;
 }
 
-.note {
+/* Corpo externo do clipe */
+.paperclip::before {
+    content: "";
+
     position: absolute;
+    inset: 0;
 
-    right: 7%;
-    bottom: 9%;
-
-    width: 135px;
-    min-height: 105px;
-
-    padding: 28px 18px 18px;
+    border: 4px solid #777873;
+    border-radius: 24px;
 
     background:
         linear-gradient(
-            135deg,
-            #e4cf72,
-            #d5bd5d
+            90deg,
+            rgba(255,255,255,.18),
+            transparent 25%,
+            rgba(0,0,0,.16) 70%,
+            rgba(255,255,255,.12)
         );
 
-    color: #594b28;
+    box-shadow:
+        inset 2px 0 1px rgba(255,255,255,.35),
+        inset -2px 0 2px rgba(0,0,0,.3),
+        1px 1px 0 #343532;
+}
 
-    font-family: "Special Elite", serif;
+/* Curva interna */
+.paperclip::after {
+    content: "";
 
-    font-size: 12px;
+    position: absolute;
 
-    line-height: 1.4;
+    left: 8px;
+    top: 10px;
 
-    text-align: center;
+    width: 22px;
+    height: 118px;
 
-    transform: rotate(6deg);
+    border: 3px solid #8b8c86;
+    border-radius: 18px;
+
+    border-bottom-color: transparent;
 
     box-shadow:
-        4px 7px 12px rgba(0,0,0,.28);
+        inset 1px 0 rgba(255,255,255,.25),
+        1px 0 rgba(40,40,38,.5);
+}
 
+/* Parte interna inferior */
+.clip-inner {
+    position: absolute;
+
+    left: 14px;
+    top: 23px;
+
+    width: 14px;
+    height: 88px;
+
+    border-left: 3px solid #6c6d68;
+    border-bottom: 3px solid #6c6d68;
+
+    border-radius: 0 0 0 12px;
+
+    opacity: .9;
+
+    z-index: 2;
+}
+
+/* Ponta do clipe que entra na folha */
+.clip-tail {
+    position: absolute;
+
+    left: 13px;
+    bottom: -16px;
+
+    width: 4px;
+    height: 45px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #555651,
+            #a1a19a,
+            #555651
+        );
+
+    border-radius: 3px;
+
+    transform: rotate(-5deg);
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   NOTA
+========================================= */
+
+.note {
+    position: absolute;
+    right: 7%;
+    bottom: 9%;
+    width: 135px;
+    min-height: 105px;
+    padding: 28px 18px 18px;
+    background: linear-gradient(135deg,#e4cf72,#d5bd5d);
+    color: #594b28;
+    font-family: "Special Elite", serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    transform: rotate(6deg);
+    box-shadow: 4px 7px 12px rgba(0,0,0,.28);
     z-index: 8;
 }
 
 .date {
     position: absolute;
-
     left: 6%;
     bottom: 5%;
-
     font-size: 11px;
-
     letter-spacing: 3px;
-
     color: #837b73;
-
     opacity: .7;
-
     z-index: 2;
 }
 
 
-/* ================================= */
-/* NAVEGAÇÃO */
-/* ================================= */
+/* =========================================
+   NAVEGAÇÃO
+========================================= */
 
 .navigation {
     position: absolute;
-
     bottom: 25px;
     left: 50%;
-
-    transform:
-        translateX(-50%)
-        translateY(8px);
+    transform: translateX(-50%) translateY(8px);
 
     display: flex;
     align-items: center;
-
     gap: 25px;
 
     color: #aaa39a;
-
     font-size: 10px;
-
     letter-spacing: 2px;
 
     opacity: 0;
-
     pointer-events: none;
 
     transition: .5s;
@@ -740,44 +621,32 @@ body {
 
 .navigation.visible {
     opacity: 1;
-
     pointer-events: auto;
-
-    transform:
-        translateX(-50%)
-        translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 .nav-button {
     border: none;
-
     background: none;
-
     color: #aaa39a;
-
     font-family: "Courier Prime", monospace;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     cursor: pointer;
 }
 
 .nav-button:hover {
     color: #e6dfd2;
-
     transform: translateY(-2px);
 }
 
 
-/* ================================= */
-/* LOCAL DA OCORRÊNCIA */
-/* ================================= */
+/* =========================================
+   CENA
+========================================= */
 
 .investigation-screen {
     position: absolute;
-
     inset: 0;
 
     display: flex;
@@ -787,7 +656,6 @@ body {
     background: #151311;
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: .8s;
@@ -797,15 +665,15 @@ body {
 
 .investigation-screen.active {
     opacity: 1;
-
     visibility: visible;
 }
 
 .scene {
     position: relative;
 
-    width: min(1100px,90vw);
-    height: min(650px,80vh);
+    width: min(1100px, 90vw);
+
+    aspect-ratio: 1365 / 768;
 
     overflow: hidden;
 
@@ -819,7 +687,6 @@ body {
 
 .scene-header {
     position: absolute;
-
     top: 20px;
     left: 25px;
     right: 25px;
@@ -828,7 +695,6 @@ body {
     justify-content: space-between;
 
     font-size: 10px;
-
     letter-spacing: 2px;
 
     color: #b9b1a3;
@@ -843,7 +709,6 @@ body {
     left: 25px;
 
     font-family: "Special Elite", serif;
-
     font-size: 23px;
 
     color: #ddd5c5;
@@ -851,18 +716,9 @@ body {
     z-index: 10;
 }
 
-
-/* IMAGEM DA CENA */
-
 .crime-scene-image {
     position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 0;
-    bottom: 0;
-
+    inset: 0;
     overflow: hidden;
 }
 
@@ -876,33 +732,29 @@ body {
 }
 
 
-/* ================================= */
-/* ÁREAS CLICÁVEIS */
-/* ================================= */
+/* =========================================
+   HOTSPOTS
+========================================= */
 
 .hotspot {
     position: absolute;
 
-    border: none;
-
+    border: 0;
     background: transparent;
 
     cursor: pointer;
 
     z-index: 20;
 
-    transition:
-        background .2s,
-        box-shadow .2s;
+    transition: .2s;
 }
 
 .hotspot:hover {
-    background:
-        rgba(214,190,101,.12);
+    background: rgba(214,189,101,.14);
 
     box-shadow:
-        inset 0 0 0 2px rgba(214,190,101,.65),
-        0 0 20px rgba(214,190,101,.25);
+        inset 0 0 0 2px rgba(214,189,101,.7),
+        0 0 20px rgba(214,189,101,.2);
 }
 
 .hotspot::after {
@@ -913,25 +765,23 @@ body {
     top: 50%;
     left: 50%;
 
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 
-    transform:
-        translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
     border: 1px solid #d6bd65;
-
     border-radius: 50%;
 
-    background: rgba(15,14,12,.8);
+    background: rgba(15,14,12,.85);
 
     color: #d6bd65;
 
     font-family: "Special Elite", serif;
+    font-size: 14px;
 
     opacity: 0;
 
@@ -942,55 +792,45 @@ body {
     opacity: 1;
 }
 
-
-/*
-    AJUSTE ESTAS POSIÇÕES CASO A SUA
-    IMAGEM TENHA OS OBJETOS EM LOCAIS
-    DIFERENTES.
-*/
-
-.hotspot-bench {
-    left: 8%;
-    bottom: 25%;
-
-    width: 25%;
-    height: 22%;
+.bench {
+    left: 4%;
+    top: 45%;
+    width: 21%;
+    height: 27%;
 }
 
-.hotspot-knife {
-    left: 57%;
-    bottom: 25%;
-
-    width: 17%;
-    height: 13%;
+.body {
+    left: 28%;
+    top: 57%;
+    width: 29%;
+    height: 15%;
 }
 
-.hotspot-body {
-    left: 35%;
-    bottom: 13%;
-
-    width: 25%;
-    height: 30%;
+.knife {
+    left: 68%;
+    top: 64%;
+    width: 9%;
+    height: 8%;
 }
 
-.hotspot-trash {
-    right: 8%;
-    bottom: 18%;
-
-    width: 12%;
-    height: 20%;
+.trash {
+    right: 3%;
+    top: 45%;
+    width: 10%;
+    height: 29%;
 }
 
-.hotspot-light {
-    right: 20%;
-    top: 10%;
-
-    width: 12%;
-    height: 55%;
+.light {
+    right: 14%;
+    top: 3%;
+    width: 7%;
+    height: 60%;
 }
 
 
-/* CONTROLES */
+/* =========================================
+   CONTROLES DA CENA
+========================================= */
 
 .scene-controls {
     position: absolute;
@@ -1000,9 +840,9 @@ body {
     bottom: 20px;
 
     display: flex;
-
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
 
     z-index: 25;
 }
@@ -1012,15 +852,12 @@ body {
 
     border: 1px solid #635d53;
 
-    background:
-        rgba(20,18,16,.85);
+    background: rgba(20,18,16,.85);
 
     color: #c9c0af;
 
     font-family: "Courier Prime", monospace;
-
     font-size: 9px;
-
     letter-spacing: 1px;
 
     cursor: pointer;
@@ -1033,14 +870,14 @@ body {
 .clue-counter {
     padding: 9px 13px;
 
-    background:
-        rgba(20,18,16,.85);
+    background: rgba(20,18,16,.85);
 
     font-size: 9px;
-
     letter-spacing: 1px;
 
     color: #aaa398;
+
+    white-space: nowrap;
 }
 
 .clue-counter strong {
@@ -1048,24 +885,77 @@ body {
 }
 
 
-/* ================================= */
-/* MODAL EVIDÊNCIA */
-/* ================================= */
+/* BOTÃO PARA SUSPEITOS */
+
+.continue-button {
+    padding: 10px 15px;
+
+    border: 1px solid #635d53;
+
+    background: rgba(20,18,16,.85);
+
+    color: #777168;
+
+    font-family: "Courier Prime", monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    cursor: not-allowed;
+
+    transition:
+        background .25s,
+        color .25s,
+        border-color .25s,
+        transform .2s,
+        box-shadow .25s;
+}
+
+.continue-button.ready {
+    border-color: #d6bd65;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(73,63,43,.95),
+            rgba(43,38,30,.95)
+        );
+
+    color: #e5d7a5;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 12px rgba(214,189,101,.12);
+}
+
+.continue-button.ready:hover {
+    background: #574b35;
+
+    color: #fff4c9;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.35),
+        0 0 15px rgba(214,189,101,.15);
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
 
 .clue-modal {
     position: fixed;
-
     inset: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background:
-        rgba(8,7,6,.72);
+    background: rgba(8,7,6,.72);
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: .3s;
@@ -1075,7 +965,6 @@ body {
 
 .clue-modal.active {
     opacity: 1;
-
     visibility: visible;
 }
 
@@ -1108,7 +997,6 @@ body {
     top: 10px;
 
     border: none;
-
     background: none;
 
     font-size: 25px;
@@ -1120,9 +1008,7 @@ body {
 
 .clue-type {
     font-size: 9px;
-
     letter-spacing: 3px;
-
     color: #8e2929;
 }
 
@@ -1130,15 +1016,12 @@ body {
     margin: 12px 0;
 
     font-family: "Special Elite", serif;
-
     font-size: 28px;
-
     font-weight: normal;
 }
 
 .clue-card p {
     font-size: 12px;
-
     line-height: 1.7;
 }
 
@@ -1150,7 +1033,6 @@ body {
     border: 1px dashed #8b806d;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 
     color: #706758;
@@ -1170,7 +1052,6 @@ body {
     color: #e8dfcb;
 
     font-family: "Courier Prime", monospace;
-
     letter-spacing: 2px;
 
     cursor: pointer;
@@ -1181,24 +1062,21 @@ body {
 }
 
 
-/* ================================= */
-/* TELA DE SUSPEITOS */
-/* ================================= */
+/* =========================================
+   SUSPEITOS
+========================================= */
 
 .suspects-screen {
     position: absolute;
-
     inset: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background:
-        #151311;
+    background: #151311;
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: .5s;
@@ -1208,7 +1086,6 @@ body {
 
 .suspects-screen.active {
     opacity: 1;
-
     visibility: visible;
 }
 
@@ -1237,7 +1114,6 @@ body {
 
 .suspects-header {
     display: flex;
-
     justify-content: space-between;
 
     padding-bottom: 15px;
@@ -1245,7 +1121,6 @@ body {
     border-bottom: 1px solid #968a76;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 
     color: #706758;
@@ -1255,9 +1130,7 @@ body {
     margin-top: 35px;
 
     font-family: "Special Elite", serif;
-
     font-size: 32px;
-
     font-weight: normal;
 }
 
@@ -1267,7 +1140,6 @@ body {
     margin-top: 12px;
 
     font-size: 11px;
-
     line-height: 1.7;
 
     color: #61594e;
@@ -1276,8 +1148,7 @@ body {
 .suspects-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);
 
     gap: 18px;
 
@@ -1293,8 +1164,7 @@ body {
 
     border: 1px solid #9b8e78;
 
-    background:
-        rgba(244,237,220,.55);
+    background: rgba(244,237,220,.55);
 
     color: #302b24;
 
@@ -1320,7 +1190,6 @@ body {
     margin-bottom: 13px;
 
     font-size: 8px;
-
     letter-spacing: 2px;
 
     color: #8e2929;
@@ -1330,7 +1199,6 @@ body {
     display: block;
 
     font-size: 16px;
-
     font-weight: normal;
 }
 
@@ -1340,7 +1208,6 @@ body {
     margin-top: 8px;
 
     font-size: 8px;
-
     letter-spacing: 1px;
 
     color: #756c5d;
@@ -1360,7 +1227,6 @@ body {
     font-family: "Courier Prime", monospace;
 
     font-size: 9px;
-
     letter-spacing: 1px;
 
     cursor: pointer;
@@ -1371,13 +1237,12 @@ body {
 }
 
 
-/* ================================= */
-/* INTERROGATÓRIO */
-/* ================================= */
+/* =========================================
+   INTERROGATÓRIO
+========================================= */
 
 .interrogation-screen {
     position: absolute;
-
     inset: 0;
 
     display: flex;
@@ -1392,7 +1257,6 @@ body {
         );
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: .5s;
@@ -1402,7 +1266,6 @@ body {
 
 .interrogation-screen.active {
     opacity: 1;
-
     visibility: visible;
 }
 
@@ -1429,12 +1292,8 @@ body {
     transform: rotate(-.3deg);
 }
 
-
-/* Cabeçalho */
-
 .interrogation-header {
     display: flex;
-
     justify-content: space-between;
     align-items: center;
 
@@ -1443,7 +1302,6 @@ body {
     border-bottom: 1px solid #958976;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 
     color: #706758;
@@ -1451,7 +1309,6 @@ body {
 
 .back-suspects {
     border: none;
-
     background: none;
 
     color: #706758;
@@ -1459,7 +1316,6 @@ body {
     font-family: "Courier Prime", monospace;
 
     font-size: 9px;
-
     letter-spacing: 1px;
 
     cursor: pointer;
@@ -1468,9 +1324,6 @@ body {
 .back-suspects:hover {
     color: #8e2929;
 }
-
-
-/* Perfil */
 
 .suspect-profile {
     margin-top: 25px;
@@ -1482,7 +1335,6 @@ body {
 
 .profile-number {
     font-size: 8px;
-
     letter-spacing: 3px;
 
     color: #8e2929;
@@ -1500,18 +1352,13 @@ body {
 
 .suspect-profile span {
     font-size: 9px;
-
     letter-spacing: 2px;
 
     color: #716958;
 }
 
-
-/* Conversa */
-
 .conversation {
     display: flex;
-
     flex-direction: column;
 
     gap: 20px;
@@ -1534,21 +1381,18 @@ body {
     margin-bottom: 7px;
 
     font-size: 8px;
-
     letter-spacing: 2px;
 }
 
 .message p {
     font-size: 11px;
-
     line-height: 1.7;
 }
 
 .investigator-message {
     align-self: flex-start;
 
-    background:
-        #40382e;
+    background: #40382e;
 
     color: #e9dfcb;
 }
@@ -1560,8 +1404,7 @@ body {
 .suspect-message {
     align-self: flex-end;
 
-    background:
-        #eee5d3;
+    background: #eee5d3;
 
     border: 1px solid #c2b59e;
 }
@@ -1569,9 +1412,6 @@ body {
 .suspect-message span {
     color: #8e2929;
 }
-
-
-/* Escolhas */
 
 .choices-area {
     position: absolute;
@@ -1587,7 +1427,6 @@ body {
     margin-bottom: 10px;
 
     font-size: 8px;
-
     letter-spacing: 2px;
 
     color: #716958;
@@ -1595,7 +1434,6 @@ body {
 
 .choices {
     display: flex;
-
     flex-direction: column;
 
     gap: 8px;
@@ -1610,8 +1448,7 @@ body {
 
     border: 1px solid #9b8e78;
 
-    background:
-        rgba(246,239,224,.65);
+    background: rgba(246,239,224,.65);
 
     color: #393229;
 
@@ -1632,9 +1469,6 @@ body {
     background: #eee3cc;
 }
 
-
-/* Rodapé */
-
 .interrogation-footer {
     position: absolute;
 
@@ -1643,35 +1477,30 @@ body {
     bottom: 25px;
 
     display: flex;
-
     justify-content: space-between;
 
     font-size: 7px;
-
     letter-spacing: 2px;
 
     color: #857b6d;
 }
 
 
-/* ================================= */
-/* ALERTA */
-/* ================================= */
+/* =========================================
+   ALERTA
+========================================= */
 
 .system-alert {
     position: fixed;
-
     inset: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background:
-        rgba(8,7,6,.75);
+    background: rgba(8,7,6,.75);
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: .3s;
@@ -1681,7 +1510,6 @@ body {
 
 .system-alert.active {
     opacity: 1;
-
     visibility: visible;
 }
 
@@ -1692,8 +1520,7 @@ body {
 
     text-align: center;
 
-    background:
-        #e8dfcb;
+    background: #e8dfcb;
 
     color: #292621;
 
@@ -1715,7 +1542,6 @@ body {
     margin: 18px 0;
 
     font-size: 11px;
-
     line-height: 1.7;
 }
 
@@ -1731,16 +1557,15 @@ body {
     font-family: "Courier Prime", monospace;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 
     cursor: pointer;
 }
 
 
-/* ================================= */
-/* RESPONSIVIDADE */
-/* ================================= */
+/* =========================================
+   RESPONSIVO
+========================================= */
 
 @media (max-width:700px) {
 
@@ -1765,14 +1590,12 @@ body {
     .stamp {
         right: 25px;
         top: 50px;
-
         font-size: 11px;
     }
 
     .folder-info {
         left: 30px;
         bottom: 30px;
-
         gap: 18px;
     }
 
@@ -1787,15 +1610,49 @@ body {
     .open-button {
         right: 25px;
         bottom: 30px;
-
         padding: 12px 15px;
-
         font-size: 9px;
     }
 
-    .note,
-    .paperclip {
+    .note {
         display: none;
+    }
+
+    /* CLIPE NO CELULAR */
+    .paperclip {
+        right: 4%;
+        top: 10%;
+        width: 30px;
+        height: 105px;
+        transform: rotate(13deg);
+    }
+
+    .paperclip::before {
+        border-width: 3px;
+        border-radius: 18px;
+    }
+
+    .paperclip::after {
+        left: 6px;
+        top: 8px;
+        width: 17px;
+        height: 82px;
+        border-width: 2px;
+    }
+
+    .clip-inner {
+        left: 10px;
+        top: 17px;
+        width: 10px;
+        height: 60px;
+        border-width: 2px;
+    }
+
+    .clip-tail {
+        left: 10px;
+        bottom: -10px;
+        width: 3px;
+        height: 32px;
     }
 
     .first-page {
@@ -1829,16 +1686,48 @@ body {
 
     .scene {
         width: 95vw;
-        height: 80vh;
     }
 
     .scene-title {
         font-size: 17px;
     }
 
+    .scene-header {
+        top: 12px;
+        left: 15px;
+        right: 15px;
+        font-size: 7px;
+    }
+
+    .scene-title {
+        top: 38px;
+        left: 15px;
+    }
+
+    .scene-controls {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        gap: 6px;
+    }
+
+    .scene-controls button {
+        padding: 8px;
+        font-size: 7px;
+    }
+
+    .clue-counter {
+        font-size: 7px;
+        padding: 8px;
+    }
+
+    .continue-button {
+        font-size: 7px;
+        padding: 8px;
+    }
+
     .suspects-panel {
         padding: 25px;
-
         min-height: 75vh;
     }
 
@@ -1848,7 +1737,6 @@ body {
 
     .suspect-card {
         min-height: 100px;
-
         padding: 14px;
     }
 
@@ -1859,7 +1747,6 @@ body {
     .interrogation-panel {
         width: 94vw;
         height: 85vh;
-
         padding: 22px;
     }
 
@@ -1881,5 +1768,4 @@ body {
         left: 22px;
         right: 22px;
     }
-
 }
