@@ -24,15 +24,13 @@
 
     <div class="desk"></div>
 
-    <!-- ============================= -->
     <!-- PASTA -->
-    <!-- ============================= -->
-
     <section class="folder">
 
         <div class="paper paper-one"></div>
         <div class="paper paper-two"></div>
 
+        <!-- PARTE INTERNA -->
         <div class="folder-inside">
 
             <article class="first-page">
@@ -132,7 +130,6 @@
         </div>
 
         <!-- CAPA -->
-
         <div class="folder-cover">
 
             <div class="folder-tab">
@@ -191,10 +188,11 @@
 
     </section>
 
-
-    <!-- ELEMENTOS DA MESA -->
-
-    <div class="paperclip"></div>
+    <!-- CLIPE DA PASTA -->
+    <div class="paperclip">
+        <div class="clip-inner"></div>
+        <div class="clip-tail"></div>
+    </div>
 
     <div class="note">
         NÃO TOCAR
@@ -204,11 +202,7 @@
         23 / 09 / 2026
     </div>
 
-
-    <!-- ============================= -->
     <!-- NAVEGAÇÃO -->
-    <!-- ============================= -->
-
     <nav class="navigation">
 
         <button class="nav-button" id="previousPage">
@@ -226,36 +220,22 @@
     </nav>
 
 
-    <!-- ============================= -->
-    <!-- LOCAL DO CRIME -->
-    <!-- ============================= -->
+    <!-- =========================================
+         TELA DO LOCAL DO CRIME
+    ========================================== -->
 
     <div class="investigation-screen" id="investigationScreen">
 
         <div class="scene">
 
             <div class="scene-header">
-
-                <span>
-                    CASO Nº 017
-                </span>
-
-                <span>
-                    PRAÇA — 02:17
-                </span>
-
+                <span>CASO Nº 017</span>
+                <span>PRAÇA — 02:17</span>
             </div>
 
             <div class="scene-title">
                 LOCAL DA OCORRÊNCIA
             </div>
-
-
-            <!--
-                Se você estiver usando a imagem que criou,
-                coloque o arquivo na mesma pasta e altere
-                o nome abaixo para o nome da sua imagem.
-            -->
 
             <div class="crime-scene-image">
 
@@ -264,42 +244,37 @@
                     alt="Local da ocorrência"
                 >
 
-                <!-- ÁREAS CLICÁVEIS -->
-
                 <button
-                    class="hotspot hotspot-bench"
+                    class="hotspot bench"
                     data-clue="bench"
                     aria-label="Banco"
                 ></button>
 
                 <button
-                    class="hotspot hotspot-knife"
+                    class="hotspot knife"
                     data-clue="knife"
                     aria-label="Faca"
                 ></button>
 
                 <button
-                    class="hotspot hotspot-body"
+                    class="hotspot body"
                     data-clue="body"
                     aria-label="Corpo"
                 ></button>
 
                 <button
-                    class="hotspot hotspot-trash"
+                    class="hotspot trash"
                     data-clue="trash"
                     aria-label="Lixeira"
                 ></button>
 
                 <button
-                    class="hotspot hotspot-light"
+                    class="hotspot light"
                     data-clue="light"
                     aria-label="Poste"
                 ></button>
 
             </div>
-
-
-            <!-- CONTROLES -->
 
             <div class="scene-controls">
 
@@ -308,14 +283,17 @@
                 </button>
 
                 <div class="clue-counter">
-
                     PISTAS ENCONTRADAS:
-
-                    <strong id="clueCounter">
-                        0 / 5
-                    </strong>
-
+                    <strong id="clueCounter">0 / 5</strong>
                 </div>
+
+                <button
+                    id="continueToSuspects"
+                    class="continue-button"
+                    disabled
+                >
+                    ANALISE TODAS AS EVIDÊNCIAS
+                </button>
 
             </div>
 
@@ -324,18 +302,15 @@
     </div>
 
 
-    <!-- ============================= -->
-    <!-- MODAL DAS EVIDÊNCIAS -->
-    <!-- ============================= -->
+    <!-- =========================================
+         MODAL DE EVIDÊNCIA
+    ========================================== -->
 
     <div class="clue-modal" id="clueModal">
 
         <div class="clue-card">
 
-            <button
-                class="close-clue"
-                id="closeClue"
-            >
+            <button class="close-clue" id="closeClue">
                 ×
             </button>
 
@@ -351,17 +326,11 @@
                 Descrição da evidência.
             </p>
 
-            <div
-                class="clue-code"
-                id="clueCode"
-            >
+            <div class="clue-code" id="clueCode">
                 EVIDÊNCIA #01
             </div>
 
-            <button
-                class="confirm-clue"
-                id="confirmClue"
-            >
+            <button class="confirm-clue" id="confirmClue">
                 ARQUIVAR EVIDÊNCIA
             </button>
 
@@ -370,27 +339,17 @@
     </div>
 
 
-    <!-- ============================= -->
-    <!-- TELA DE SUSPEITOS -->
-    <!-- ============================= -->
+    <!-- =========================================
+         TELA DE SUSPEITOS
+    ========================================== -->
 
-    <div
-        class="suspects-screen"
-        id="suspectsScreen"
-    >
+    <div class="suspects-screen" id="suspectsScreen">
 
         <div class="suspects-panel">
 
             <div class="suspects-header">
-
-                <span>
-                    CASO Nº 017
-                </span>
-
-                <span>
-                    INTERROGATÓRIO
-                </span>
-
+                <span>CASO Nº 017</span>
+                <span>INTERROGATÓRIO</span>
             </div>
 
             <h2>
@@ -402,95 +361,35 @@
                 Selecione um dos indivíduos para iniciar o interrogatório.
             </p>
 
-
             <div class="suspects-grid">
 
-                <button
-                    class="suspect-card"
-                    data-suspect="1"
-                >
-
-                    <span class="suspect-number">
-                        SUSPEITO 01
-                    </span>
-
-                    <strong>
-                        EDUARDO █████
-                    </strong>
-
-                    <small>
-                        FUNCIONÁRIO LOCAL
-                    </small>
-
+                <button class="suspect-card" data-suspect="1">
+                    <span class="suspect-number">SUSPEITO 01</span>
+                    <strong>EDUARDO █████</strong>
+                    <small>FUNCIONÁRIO LOCAL</small>
                 </button>
 
-
-                <button
-                    class="suspect-card"
-                    data-suspect="2"
-                >
-
-                    <span class="suspect-number">
-                        SUSPEITO 02
-                    </span>
-
-                    <strong>
-                        MARCOS █████
-                    </strong>
-
-                    <small>
-                        CONHECIDO DA VÍTIMA
-                    </small>
-
+                <button class="suspect-card" data-suspect="2">
+                    <span class="suspect-number">SUSPEITO 02</span>
+                    <strong>MARCOS █████</strong>
+                    <small>CONHECIDO DA VÍTIMA</small>
                 </button>
 
-
-                <button
-                    class="suspect-card"
-                    data-suspect="3"
-                >
-
-                    <span class="suspect-number">
-                        SUSPEITO 03
-                    </span>
-
-                    <strong>
-                        RENATO █████
-                    </strong>
-
-                    <small>
-                        MORADOR DA REGIÃO
-                    </small>
-
+                <button class="suspect-card" data-suspect="3">
+                    <span class="suspect-number">SUSPEITO 03</span>
+                    <strong>RENATO █████</strong>
+                    <small>MORADOR DA REGIÃO</small>
                 </button>
 
-
-                <button
-                    class="suspect-card"
-                    data-suspect="4"
-                >
-
-                    <span class="suspect-number">
-                        SUSPEITO 04
-                    </span>
-
-                    <strong>
-                        DANIEL █████
-                    </strong>
-
-                    <small>
-                        ÚLTIMA PESSOA VISTA
-                    </small>
-
+                <button class="suspect-card" data-suspect="4">
+                    <span class="suspect-number">SUSPEITO 04</span>
+                    <strong>DANIEL █████</strong>
+                    <small>ÚLTIMA PESSOA VISTA</small>
                 </button>
 
             </div>
 
-
-            <button
-                class="back-evidence"
-                id="backEvidence"
-            >
+            <button class="back-evidence" id="backEvidence">
                 ← VOLTAR ÀS EVIDÊNCIAS
             </button>
 
@@ -499,23 +398,17 @@
     </div>
 
 
-    <!-- ============================= -->
-    <!-- INTERROGATÓRIO -->
-    <!-- ============================= -->
+    <!-- =========================================
+         INTERROGATÓRIO
+    ========================================== -->
 
-    <div
-        class="interrogation-screen"
-        id="interrogationScreen"
-    >
+    <div class="interrogation-screen" id="interrogationScreen">
 
         <div class="interrogation-panel">
 
             <div class="interrogation-header">
 
-                <button
-                    id="backSuspects"
-                    class="back-suspects"
-                >
+                <button id="backSuspects" class="back-suspects">
                     ← SUSPEITOS
                 </button>
 
@@ -524,7 +417,6 @@
                 </span>
 
             </div>
-
 
             <div class="suspect-profile">
 
@@ -542,23 +434,17 @@
 
             </div>
 
-
-            <!-- CONVERSA -->
-
             <div class="conversation">
 
                 <div class="message investigator-message">
 
-                    <span>
-                        INVESTIGADOR
-                    </span>
+                    <span>INVESTIGADOR</span>
 
                     <p id="investigatorMessage">
                         Onde você estava por volta das 02:00?
                     </p>
 
                 </div>
-
 
                 <div class="message suspect-message">
 
@@ -574,36 +460,15 @@
 
             </div>
 
-
-            <!-- ESCOLHAS -->
-
             <div class="choices-area">
 
                 <span class="choices-title">
                     ESCOLHA UMA PERGUNTA
                 </span>
 
-                <div
-                    class="choices"
-                    id="choices"
-                >
-
-                    <button class="choice-button">
-                        Pergunta 01
-                    </button>
-
-                    <button class="choice-button">
-                        Pergunta 02
-                    </button>
-
-                    <button class="choice-button">
-                        Pergunta 03
-                    </button>
-
-                </div>
+                <div class="choices" id="choices"></div>
 
             </div>
-
 
             <div class="interrogation-footer">
 
@@ -622,20 +487,15 @@
     </div>
 
 
-    <!-- ============================= -->
-    <!-- ALERTA -->
-    <!-- ============================= -->
+    <!-- =========================================
+         ALERTA
+    ========================================== -->
 
-    <div
-        class="system-alert"
-        id="systemAlert"
-    >
+    <div class="system-alert" id="systemAlert">
 
         <div class="alert-box">
 
-            <span>
-                ACESSO NEGADO
-            </span>
+            <span>ACESSO NEGADO</span>
 
             <p id="alertMessage">
                 Todas as evidências devem ser analisadas antes de prosseguir.
@@ -649,11 +509,9 @@
 
     </div>
 
-
 </main>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
