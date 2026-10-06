@@ -1,99 +1,22 @@
+const $ = selector => document.querySelector(selector);
+const $$ = selector => document.querySelectorAll(selector);
+
+
 /* =========================================
-   ELEMENTOS
+   ELEMENTOS PRINCIPAIS
 ========================================= */
 
-const folder =
-    document.querySelector(".folder");
+const folder = $(".folder");
+const navigation = $(".navigation");
 
-const openButton =
-    document.querySelector("#openCase");
+const investigation = $("#investigationScreen");
+const suspectsScreen = $("#suspectsScreen");
+const interrogation = $("#interrogationScreen");
 
-const navigation =
-    document.querySelector(".navigation");
+const clueModal = $("#clueModal");
+const systemAlert = $("#systemAlert");
 
-const nextPage =
-    document.querySelector("#nextPage");
-
-const previousPage =
-    document.querySelector("#previousPage");
-
-const pageCounter =
-    document.querySelector("#pageCounter");
-
-const investigationScreen =
-    document.querySelector("#investigationScreen");
-
-const backToFile =
-    document.querySelector("#backToFile");
-
-const clueModal =
-    document.querySelector("#clueModal");
-
-const closeClue =
-    document.querySelector("#closeClue");
-
-const confirmClue =
-    document.querySelector("#confirmClue");
-
-const clueTitle =
-    document.querySelector("#clueTitle");
-
-const clueDescription =
-    document.querySelector("#clueDescription");
-
-const clueCode =
-    document.querySelector("#clueCode");
-
-const clueCounter =
-    document.querySelector("#clueCounter");
-
-const suspectsScreen =
-    document.querySelector("#suspectsScreen");
-
-const interrogationScreen =
-    document.querySelector("#interrogationScreen");
-
-const backSuspects =
-    document.querySelector("#backSuspects");
-
-const backEvidence =
-    document.querySelector("#backEvidence");
-
-const interrogationRound =
-    document.querySelector("#interrogationRound");
-
-const profileNumber =
-    document.querySelector("#profileNumber");
-
-const profileName =
-    document.querySelector("#profileName");
-
-const profileOccupation =
-    document.querySelector("#profileOccupation");
-
-const investigatorMessage =
-    document.querySelector("#investigatorMessage");
-
-const suspectMessage =
-    document.querySelector("#suspectMessage");
-
-const suspectMessageName =
-    document.querySelector("#suspectMessageName");
-
-const choices =
-    document.querySelector("#choices");
-
-const dialogProgress =
-    document.querySelector("#dialogProgress");
-
-const systemAlert =
-    document.querySelector("#systemAlert");
-
-const alertMessage =
-    document.querySelector("#alertMessage");
-
-const closeAlert =
-    document.querySelector("#closeAlert");
+const continueToSuspects = $("#continueToSuspects");
 
 
 /* =========================================
@@ -103,83 +26,51 @@ const closeAlert =
 const clues = {
 
     knife: {
-
         title: "Faca encontrada",
 
         description:
             "Uma faca foi encontrada a poucos metros do corpo. Há pequenas marcas avermelhadas na lâmina. A arma foi recolhida para análise.",
 
-        code:
-            "EVIDÊNCIA #01"
-
+        code: "EVIDÊNCIA #01"
     },
 
     body: {
-
         title: "Vítima",
 
         description:
             "O corpo apresenta um ferimento profundo na região abdominal. Não há documentos próximos à vítima.",
 
-        code:
-            "EVIDÊNCIA #02"
-
+        code: "EVIDÊNCIA #02"
     },
 
     bench: {
-
         title: "Banco da praça",
 
         description:
             "Há marcas recentes no banco. Um pequeno pedaço de tecido foi encontrado preso à madeira.",
 
-        code:
-            "EVIDÊNCIA #03"
-
+        code: "EVIDÊNCIA #03"
     },
 
     trash: {
-
         title: "Lixeira",
 
         description:
             "Dentro da lixeira há um recibo parcialmente rasgado. O horário registrado é 01:43.",
 
-        code:
-            "EVIDÊNCIA #04"
-
+        code: "EVIDÊNCIA #04"
     },
 
     light: {
-
         title: "Poste de iluminação",
 
         description:
             "A lâmpada do poste está parcialmente quebrada. A câmera de segurança instalada próxima ao local estava apontada para outra direção.",
 
-        code:
-            "EVIDÊNCIA #05"
-
+        code: "EVIDÊNCIA #05"
     }
 
 };
-
-
-/* =========================================
-   ESTADO
-========================================= */
-
-const foundClues =
-    new Set();
-
-let currentClue =
-    null;
-
-let currentSuspect =
-    null;
-
-let currentRound =
-    0;
 
 
 /* =========================================
@@ -191,14 +82,11 @@ const suspects = {
     1: {
 
         name: "EDUARDO █████",
-
-        occupation:
-            "FUNCIONÁRIO LOCAL",
+        occupation: "FUNCIONÁRIO LOCAL",
 
         dialogues: [
 
             {
-
                 question:
                     "Onde você estava por volta das 02:00?",
 
@@ -207,37 +95,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Alguém pode confirmar isso?",
+                    [
+                        "Alguém pode confirmar isso?",
+                        "Minha irmã estava comigo. Ela pode confirmar."
+                    ],
 
-                        response:
-                            "Minha irmã estava comigo. Ela pode confirmar."
-                    },
+                    [
+                        "Você conhecia a vítima?",
+                        "Conhecia de vista. Ela costumava passar pela praça."
+                    ],
 
-                    {
-                        text:
-                            "Você conhecia a vítima?",
-
-                        response:
-                            "Conhecia de vista. Ela costumava passar pela praça."
-                    },
-
-                    {
-                        text:
-                            "Então por que seu nome apareceu no local?",
-
-                        response:
-                            "Meu nome? Não sei do que você está falando."
-
-                    }
+                    [
+                        "Então por que seu nome apareceu no local?",
+                        "Meu nome? Não sei do que você está falando."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Você esteve na praça naquela noite?",
 
@@ -246,37 +122,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Encontramos uma marca que pode estar ligada a você.",
+                    [
+                        "Encontramos uma marca que pode estar ligada a você.",
+                        "Isso não prova que eu estava lá."
+                    ],
 
-                        response:
-                            "Isso não prova que eu estava lá."
-                    },
+                    [
+                        "Você conhece o banco da praça?",
+                        "Todo mundo que mora aqui conhece aquele banco."
+                    ],
 
-                    {
-                        text:
-                            "Você conhece o banco da praça?",
-
-                        response:
-                            "Todo mundo que mora aqui conhece aquele banco."
-                    },
-
-                    {
-                        text:
-                            "A câmera estava virada para outro lado.",
-
-                        response:
-                            "Eu não tenho nada a ver com a câmera."
-
-                    }
+                    [
+                        "A câmera estava virada para outro lado.",
+                        "Eu não tenho nada a ver com a câmera."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Existe alguma coisa que você não está contando?",
 
@@ -285,51 +149,36 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Pense bem antes de responder.",
+                    [
+                        "Pense bem antes de responder.",
+                        "Eu já pensei. Não tenho mais nada para dizer."
+                    ],
 
-                        response:
-                            "Eu já pensei. Não tenho mais nada para dizer."
-                    },
+                    [
+                        "A vítima tinha inimigos?",
+                        "Talvez. Ela tinha discutido com algumas pessoas recentemente."
+                    ],
 
-                    {
-                        text:
-                            "A vítima tinha inimigos?",
-
-                        response:
-                            "Talvez. Ela tinha discutido com algumas pessoas recentemente."
-                    },
-
-                    {
-                        text:
-                            "Vamos verificar seu álibi.",
-
-                        response:
-                            "Faça o que precisar."
-
-                    }
+                    [
+                        "Vamos verificar seu álibi.",
+                        "Faça o que precisar."
+                    ]
 
                 ]
-
             }
 
         ]
-
     },
 
 
     2: {
 
         name: "MARCOS █████",
-
-        occupation:
-            "CONHECIDO DA VÍTIMA",
+        occupation: "CONHECIDO DA VÍTIMA",
 
         dialogues: [
 
             {
-
                 question:
                     "Qual era sua relação com a vítima?",
 
@@ -338,37 +187,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Eram amigos?",
+                    [
+                        "Eram amigos?",
+                        "Já fomos. As coisas mudaram nos últimos meses."
+                    ],
 
-                        response:
-                            "Já fomos. As coisas mudaram nos últimos meses."
-                    },
+                    [
+                        "Vocês tiveram algum problema?",
+                        "Tivemos uma discussão. Nada além disso."
+                    ],
 
-                    {
-                        text:
-                            "Vocês tiveram algum problema?",
-
-                        response:
-                            "Tivemos uma discussão. Nada além disso."
-                    },
-
-                    {
-                        text:
-                            "Você está escondendo alguma coisa?",
-
-                        response:
-                            "Não estou escondendo nada."
-
-                    }
+                    [
+                        "Você está escondendo alguma coisa?",
+                        "Não estou escondendo nada."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Por que você esteve perto da praça?",
 
@@ -377,37 +214,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Que horas?",
+                    [
+                        "Que horas?",
+                        "Por volta de uma da manhã."
+                    ],
 
-                        response:
-                            "Por volta de uma da manhã."
-                    },
+                    [
+                        "Encontramos um recibo marcado às 01:43.",
+                        "Eu não sei nada sobre esse recibo."
+                    ],
 
-                    {
-                        text:
-                            "Encontramos um recibo marcado às 01:43.",
-
-                        response:
-                            "Eu não sei nada sobre esse recibo."
-                    },
-
-                    {
-                        text:
-                            "Alguém viu você?",
-
-                        response:
-                            "Acho que não."
-
-                    }
+                    [
+                        "Alguém viu você?",
+                        "Acho que não."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Você sabia que a vítima estaria naquela praça?",
 
@@ -416,51 +241,36 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Tem certeza?",
+                    [
+                        "Tem certeza?",
+                        "Tenho."
+                    ],
 
-                        response:
-                            "Tenho."
-                    },
+                    [
+                        "Vocês discutiram naquela noite?",
+                        "Não quero falar sobre isso."
+                    ],
 
-                    {
-                        text:
-                            "Vocês discutiram naquela noite?",
-
-                        response:
-                            "Não quero falar sobre isso."
-                    },
-
-                    {
-                        text:
-                            "Então por que saiu de casa?",
-
-                        response:
-                            "Eu precisava resolver algumas coisas."
-
-                    }
+                    [
+                        "Então por que saiu de casa?",
+                        "Eu precisava resolver algumas coisas."
+                    ]
 
                 ]
-
             }
 
         ]
-
     },
 
 
     3: {
 
         name: "RENATO █████",
-
-        occupation:
-            "MORADOR DA REGIÃO",
+        occupation: "MORADOR DA REGIÃO",
 
         dialogues: [
 
             {
-
                 question:
                     "Você mora próximo à praça?",
 
@@ -469,37 +279,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Ouviu alguma coisa naquela noite?",
+                    [
+                        "Ouviu alguma coisa naquela noite?",
+                        "Ouvi um barulho estranho."
+                    ],
 
-                        response:
-                            "Ouvi um barulho estranho."
-                    },
+                    [
+                        "Que horas foi isso?",
+                        "Acho que depois das duas."
+                    ],
 
-                    {
-                        text:
-                            "Que horas foi isso?",
-
-                        response:
-                            "Acho que depois das duas."
-                    },
-
-                    {
-                        text:
-                            "Você saiu de casa?",
-
-                        response:
-                            "Não."
-
-                    }
+                    [
+                        "Você saiu de casa?",
+                        "Não."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Você viu alguém na praça?",
 
@@ -508,37 +306,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Consegue descrever?",
+                    [
+                        "Consegue descrever?",
+                        "Era difícil enxergar. Estava escuro."
+                    ],
 
-                        response:
-                            "Era difícil enxergar. Estava escuro."
-                    },
+                    [
+                        "Era homem ou mulher?",
+                        "Parecia ser um homem."
+                    ],
 
-                    {
-                        text:
-                            "Era homem ou mulher?",
-
-                        response:
-                            "Parecia ser um homem."
-                    },
-
-                    {
-                        text:
-                            "Você está escondendo essa pessoa?",
-
-                        response:
-                            "Não. Eu realmente não consegui ver."
-
-                    }
+                    [
+                        "Você está escondendo essa pessoa?",
+                        "Não. Eu realmente não consegui ver."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Por que você demorou para contar isso?",
 
@@ -547,51 +333,36 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Agora parece importante.",
+                    [
+                        "Agora parece importante.",
+                        "Eu percebi isso depois."
+                    ],
 
-                        response:
-                            "Eu percebi isso depois."
-                    },
+                    [
+                        "Você conhece essa pessoa?",
+                        "Talvez eu tenha reconhecido a roupa."
+                    ],
 
-                    {
-                        text:
-                            "Você conhece essa pessoa?",
-
-                        response:
-                            "Talvez eu tenha reconhecido a roupa."
-                    },
-
-                    {
-                        text:
-                            "Que roupa?",
-
-                        response:
-                            "Uma jaqueta escura. Foi só isso que vi."
-
-                    }
+                    [
+                        "Que roupa?",
+                        "Uma jaqueta escura. Foi só isso que vi."
+                    ]
 
                 ]
-
             }
 
         ]
-
     },
 
 
     4: {
 
         name: "DANIEL █████",
-
-        occupation:
-            "ÚLTIMA PESSOA VISTA",
+        occupation: "ÚLTIMA PESSOA VISTA",
 
         dialogues: [
 
             {
-
                 question:
                     "Você foi a última pessoa vista com a vítima?",
 
@@ -600,37 +371,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Sobre o que conversaram?",
+                    [
+                        "Sobre o que conversaram?",
+                        "Sobre um problema pessoal."
+                    ],
 
-                        response:
-                            "Sobre um problema pessoal."
-                    },
+                    [
+                        "Vocês discutiram?",
+                        "A conversa ficou um pouco tensa."
+                    ],
 
-                    {
-                        text:
-                            "Vocês discutiram?",
-
-                        response:
-                            "A conversa ficou um pouco tensa."
-                    },
-
-                    {
-                        text:
-                            "Onde aconteceu?",
-
-                        response:
-                            "Perto da entrada da praça."
-
-                    }
+                    [
+                        "Onde aconteceu?",
+                        "Perto da entrada da praça."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Que horas você deixou a praça?",
 
@@ -639,37 +398,25 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "Tem certeza?",
+                    [
+                        "Tem certeza?",
+                        "Sim. Tenho certeza."
+                    ],
 
-                        response:
-                            "Sim. Tenho certeza."
-                    },
+                    [
+                        "Encontramos evidências de que alguém ficou depois desse horário.",
+                        "Então não fui eu."
+                    ],
 
-                    {
-                        text:
-                            "Encontramos evidências de que alguém ficou depois desse horário.",
-
-                        response:
-                            "Então não fui eu."
-                    },
-
-                    {
-                        text:
-                            "Alguém pode confirmar?",
-
-                        response:
-                            "Não sei."
-
-                    }
+                    [
+                        "Alguém pode confirmar?",
+                        "Não sei."
+                    ]
 
                 ]
-
             },
 
             {
-
                 question:
                     "Você conhecia a faca encontrada no local?",
 
@@ -678,36 +425,291 @@ const suspects = {
 
                 choices: [
 
-                    {
-                        text:
-                            "A lâmina apresenta marcas recentes.",
+                    [
+                        "A lâmina apresenta marcas recentes.",
+                        "Isso não tem nada a ver comigo."
+                    ],
 
-                        response:
-                            "Isso não tem nada a ver comigo."
-                    },
+                    [
+                        "Você está nervoso.",
+                        "É uma situação difícil. É normal."
+                    ],
 
-                    {
-                        text:
-                            "Você está nervoso.",
-
-                        response:
-                            "É uma situação difícil. É normal."
-                    },
-
-                    {
-                        text:
-                            "Essa é sua última chance de explicar.",
-
-                        response:
-                            "Eu já expliquei tudo que aconteceu."
-
-                    }
+                    [
+                        "Essa é sua última chance de explicar.",
+                        "Eu já expliquei tudo que aconteceu."
+                    ]
 
                 ]
-
             }
 
         ]
+    }
+
+};
+
+
+/* =========================================
+   ESTADO
+========================================= */
+
+const foundClues = new Set();
+
+let currentClue = null;
+let currentSuspect = null;
+let currentRound = 0;
+
+
+/* =========================================
+   ABRIR CASO
+========================================= */
+
+$("#openCase").onclick = () => {
+
+    folder.classList.add("open");
+
+    setTimeout(() => {
+        navigation.classList.add("visible");
+    }, 1200);
+
+};
+
+
+/* =========================================
+   PRÓXIMO
+========================================= */
+
+$("#nextPage").onclick = () => {
+
+    /*
+       PRIMEIRA PÁGINA
+       Vai para o local do crime.
+    */
+
+    if (
+        !investigation.classList.contains("active") &&
+        !suspectsScreen.classList.contains("active") &&
+        !interrogation.classList.contains("active")
+    ) {
+
+        openInvestigation();
+
+        return;
+    }
+
+
+    /*
+       LOCAL DO CRIME
+    */
+
+    if (investigation.classList.contains("active")) {
+
+        if (foundClues.size < 5) {
+
+            showAlert(
+                "Analise todas as 5 evidências antes de prosseguir."
+            );
+
+            return;
+        }
+
+        openSuspects();
+
+        return;
+    }
+
+
+    /*
+       SUSPEITOS
+    */
+
+    if (suspectsScreen.classList.contains("active")) {
+
+        return;
+    }
+
+};
+
+
+/* =========================================
+   ANTERIOR
+========================================= */
+
+$("#previousPage").onclick = () => {
+
+    if (interrogation.classList.contains("active")) {
+
+        closeInterrogation();
+        openSuspects();
+
+        return;
+    }
+
+
+    if (suspectsScreen.classList.contains("active")) {
+
+        closeSuspects();
+        openInvestigation();
+
+        return;
+    }
+
+
+    if (investigation.classList.contains("active")) {
+
+        investigation.classList.remove("active");
+
+        $("#pageCounter").textContent = "01 / 06";
+
+        return;
+    }
+
+};
+
+
+/* =========================================
+   LOCAL DO CRIME
+========================================= */
+
+function openInvestigation() {
+
+    investigation.classList.add("active");
+
+    suspectsScreen.classList.remove("active");
+
+    interrogation.classList.remove("active");
+
+    $("#pageCounter").textContent = "02 / 06";
+
+}
+
+
+/* =========================================
+   SUSPEITOS
+========================================= */
+
+function openSuspects() {
+
+    investigation.classList.remove("active");
+
+    suspectsScreen.classList.add("active");
+
+    interrogation.classList.remove("active");
+
+    $("#pageCounter").textContent = "03 / 06";
+
+}
+
+
+function closeSuspects() {
+
+    suspectsScreen.classList.remove("active");
+
+}
+
+
+/* =========================================
+   INTERROGATÓRIO
+========================================= */
+
+function openInterrogation(id) {
+
+    currentSuspect = id;
+
+    currentRound = 0;
+
+    suspectsScreen.classList.remove("active");
+
+    interrogation.classList.add("active");
+
+    $("#pageCounter").textContent = "04 / 06";
+
+    updateInterrogation();
+
+}
+
+
+function closeInterrogation() {
+
+    interrogation.classList.remove("active");
+
+}
+
+
+/* =========================================
+   HOTSPOTS
+========================================= */
+
+$$(".hotspot").forEach(hotspot => {
+
+    hotspot.onclick = () => {
+
+        currentClue = hotspot.dataset.clue;
+
+        const clue = clues[currentClue];
+
+        $("#clueTitle").textContent =
+            clue.title;
+
+        $("#clueDescription").textContent =
+            clue.description;
+
+        $("#clueCode").textContent =
+            clue.code;
+
+
+        if (foundClues.has(currentClue)) {
+
+            $("#confirmClue").textContent =
+                "EVIDÊNCIA JÁ ARQUIVADA";
+
+        } else {
+
+            $("#confirmClue").textContent =
+                "ARQUIVAR EVIDÊNCIA";
+
+        }
+
+        clueModal.classList.add("active");
+
+    };
+
+});
+
+
+/* =========================================
+   ARQUIVAR EVIDÊNCIA
+========================================= */
+
+$("#confirmClue").onclick = () => {
+
+    if (!currentClue) {
+        return;
+    }
+
+
+    foundClues.add(currentClue);
+
+
+    $("#clueCounter").textContent =
+        `${foundClues.size} / 5`;
+
+
+    clueModal.classList.remove("active");
+
+
+    /*
+       QUANDO AS 5 EVIDÊNCIAS FOREM ENCONTRADAS
+    */
+
+    if (foundClues.size === 5) {
+
+        continueToSuspects.disabled = false;
+
+        continueToSuspects.textContent =
+            "PROSSEGUIR PARA SUSPEITOS →";
+
+        continueToSuspects.classList.add("ready");
 
     }
 
@@ -715,433 +717,75 @@ const suspects = {
 
 
 /* =========================================
-   ABRIR PASTA
-========================================= */
-
-openButton.addEventListener(
-    "click",
-    () => {
-
-        folder.classList.add("open");
-
-        setTimeout(
-            () => {
-
-                navigation.classList.add("visible");
-
-            },
-            1200
-        );
-
-    }
-);
-
-
-/* =========================================
-   PRÓXIMA PÁGINA
-========================================= */
-
-nextPage.addEventListener(
-    "click",
-    () => {
-
-        /*
-            A página atual é o arquivo.
-            A próxima é o local da ocorrência.
-        */
-
-        if (
-            !investigationScreen.classList.contains("active") &&
-            !suspectsScreen.classList.contains("active") &&
-            !interrogationScreen.classList.contains("active")
-        ) {
-
-            openInvestigation();
-
-            return;
-
-        }
-
-
-        /*
-            Se estiver no local,
-            só permite continuar quando
-            todas as pistas forem encontradas.
-        */
-
-        if (
-            investigationScreen.classList.contains("active")
-        ) {
-
-            if (
-                foundClues.size <
-                Object.keys(clues).length
-            ) {
-
-                showAlert(
-                    "Todas as 5 evidências precisam ser analisadas antes de iniciar os interrogatórios."
-                );
-
-                return;
-
-            }
-
-            openSuspects();
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   PÁGINA ANTERIOR
-========================================= */
-
-previousPage.addEventListener(
-    "click",
-    () => {
-
-        if (
-            interrogationScreen.classList.contains("active")
-        ) {
-
-            closeInterrogation();
-
-            openSuspects();
-
-            return;
-
-        }
-
-        if (
-            suspectsScreen.classList.contains("active")
-        ) {
-
-            closeSuspects();
-
-            openInvestigation();
-
-            return;
-
-        }
-
-        if (
-            investigationScreen.classList.contains("active")
-        ) {
-
-            investigationScreen.classList.remove(
-                "active"
-            );
-
-            pageCounter.textContent =
-                "01 / 06";
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   INVESTIGAÇÃO
-========================================= */
-
-function openInvestigation() {
-
-    investigationScreen.classList.add(
-        "active"
-    );
-
-    suspectsScreen.classList.remove(
-        "active"
-    );
-
-    interrogationScreen.classList.remove(
-        "active"
-    );
-
-    pageCounter.textContent =
-        "02 / 06";
-
-}
-
-
-/* =========================================
-   VOLTAR PARA ARQUIVO
-========================================= */
-
-backToFile.addEventListener(
-    "click",
-    () => {
-
-        investigationScreen.classList.remove(
-            "active"
-        );
-
-        pageCounter.textContent =
-            "01 / 06";
-
-    }
-);
-
-
-/* =========================================
-   OBJETOS DAS EVIDÊNCIAS
-========================================= */
-
-document
-    .querySelectorAll(".hotspot")
-    .forEach(
-        (object) => {
-
-            object.addEventListener(
-                "click",
-                () => {
-
-                    const clueId =
-                        object.dataset.clue;
-
-                    showClue(clueId);
-
-                }
-            );
-
-        }
-    );
-
-
-/* =========================================
-   MOSTRAR EVIDÊNCIA
-========================================= */
-
-function showClue(clueId) {
-
-    const clue =
-        clues[clueId];
-
-    if (!clue) {
-        return;
-    }
-
-    currentClue =
-        clueId;
-
-    clueTitle.textContent =
-        clue.title;
-
-    clueDescription.textContent =
-        clue.description;
-
-    clueCode.textContent =
-        clue.code;
-
-    /*
-        Se já foi encontrada,
-        muda o texto do botão.
-    */
-
-    if (
-        foundClues.has(clueId)
-    ) {
-
-        confirmClue.textContent =
-            "EVIDÊNCIA JÁ ARQUIVADA";
-
-    } else {
-
-        confirmClue.textContent =
-            "ARQUIVAR EVIDÊNCIA";
-
-    }
-
-    clueModal.classList.add(
-        "active"
-    );
-
-}
-
-
-/* =========================================
    FECHAR EVIDÊNCIA
 ========================================= */
 
-closeClue.addEventListener(
-    "click",
-    () => {
+$("#closeClue").onclick = () => {
 
-        clueModal.classList.remove(
-            "active"
+    clueModal.classList.remove("active");
+
+};
+
+
+clueModal.onclick = event => {
+
+    if (event.target === clueModal) {
+
+        clueModal.classList.remove("active");
+
+    }
+
+};
+
+
+/* =========================================
+   BOTÃO PROSSEGUIR PARA SUSPEITOS
+========================================= */
+
+continueToSuspects.onclick = () => {
+
+    if (foundClues.size < 5) {
+
+        showAlert(
+            "Analise todas as 5 evidências antes de prosseguir."
         );
 
+        return;
     }
-);
+
+    openSuspects();
+
+};
 
 
 /* =========================================
-   ARQUIVAR EVIDÊNCIA
+   SUSPEITOS
 ========================================= */
 
-confirmClue.addEventListener(
-    "click",
-    () => {
+$$(".suspect-card").forEach(card => {
 
-        if (currentClue) {
+    card.onclick = () => {
 
-            foundClues.add(
-                currentClue
-            );
-
-        }
-
-        clueCounter.textContent =
-            `${foundClues.size} / ${Object.keys(clues).length}`;
-
-        clueModal.classList.remove(
-            "active"
+        openInterrogation(
+            card.dataset.suspect
         );
 
-    }
-);
+    };
 
-
-/* =========================================
-   FECHAR MODAL CLICANDO FORA
-========================================= */
-
-clueModal.addEventListener(
-    "click",
-    (event) => {
-
-        if (
-            event.target === clueModal
-        ) {
-
-            clueModal.classList.remove(
-                "active"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   ABRIR SUSPEITOS
-========================================= */
-
-function openSuspects() {
-
-    investigationScreen.classList.remove(
-        "active"
-    );
-
-    suspectsScreen.classList.add(
-        "active"
-    );
-
-    interrogationScreen.classList.remove(
-        "active"
-    );
-
-    pageCounter.textContent =
-        "03 / 06";
-
-}
-
-
-/* =========================================
-   FECHAR SUSPEITOS
-========================================= */
-
-function closeSuspects() {
-
-    suspectsScreen.classList.remove(
-        "active"
-    );
-
-}
+});
 
 
 /* =========================================
    VOLTAR PARA EVIDÊNCIAS
 ========================================= */
 
-backEvidence.addEventListener(
-    "click",
-    () => {
+$("#backEvidence").onclick = () => {
 
-        closeSuspects();
+    closeSuspects();
 
-        openInvestigation();
+    openInvestigation();
 
-    }
-);
-
-
-/* =========================================
-   ESCOLHER SUSPEITO
-========================================= */
-
-document
-    .querySelectorAll(".suspect-card")
-    .forEach(
-        (card) => {
-
-            card.addEventListener(
-                "click",
-                () => {
-
-                    const suspectId =
-                        card.dataset.suspect;
-
-                    openInterrogation(
-                        suspectId
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-/* =========================================
-   ABRIR INTERROGATÓRIO
-========================================= */
-
-function openInterrogation(
-    suspectId
-) {
-
-    currentSuspect =
-        suspectId;
-
-    currentRound =
-        0;
-
-    const suspect =
-        suspects[suspectId];
-
-    if (!suspect) {
-        return;
-    }
-
-    suspectsScreen.classList.remove(
-        "active"
-    );
-
-    interrogationScreen.classList.add(
-        "active"
-    );
-
-    pageCounter.textContent =
-        "04 / 06";
-
-    updateInterrogation();
-
-}
+};
 
 
 /* =========================================
@@ -1156,86 +800,97 @@ function updateInterrogation() {
     const dialogue =
         suspect.dialogues[currentRound];
 
-    if (
-        !suspect ||
-        !dialogue
-    ) {
 
-        return;
-
-    }
+    $("#profileNumber").textContent =
+        `SUSPEITO ${String(currentSuspect).padStart(2, "0")}`;
 
 
-    /* Perfil */
-
-    profileNumber.textContent =
-        `SUSPEITO ${String(currentSuspect).padStart(2,"0")}`;
-
-    profileName.textContent =
+    $("#profileName").textContent =
         suspect.name;
 
-    profileOccupation.textContent =
+
+    $("#profileOccupation").textContent =
         suspect.occupation;
 
 
-    /* Rodada */
+    $("#interrogationRound").textContent =
+        `INTERROGATÓRIO ${currentRound + 1} / 03`;
 
-    interrogationRound.textContent =
-        `INTERROGATÓRIO ${String(currentRound + 1).padStart(2,"0")} / 03`;
 
-    dialogProgress.textContent =
+    $("#dialogProgress").textContent =
         `RODADA ${currentRound + 1} / 3`;
 
 
-    /* Falas */
-
-    investigatorMessage.textContent =
+    $("#investigatorMessage").textContent =
         dialogue.question;
 
-    suspectMessage.textContent =
+
+    $("#suspectMessage").textContent =
         dialogue.answer;
 
-    suspectMessageName.textContent =
+
+    $("#suspectMessageName").textContent =
         suspect.name;
 
 
-    /* Limpa escolhas */
+    const choices =
+        $("#choices");
+
 
     choices.innerHTML = "";
 
 
-    /*
-        Cria as três escolhas
-    */
-
     dialogue.choices.forEach(
-        (choice, index) => {
+        ([question, response], index) => {
 
             const button =
                 document.createElement("button");
 
+
             button.className =
                 "choice-button";
 
+
             button.textContent =
-                `${index + 1}. ${choice.text}`;
+                `${index + 1}. ${question}`;
 
 
-            button.addEventListener(
-                "click",
-                () => {
+            button.onclick = () => {
 
-                    selectChoice(
-                        choice
-                    );
-
-                }
-            );
+                $("#suspectMessage").textContent =
+                    response;
 
 
-            choices.appendChild(
-                button
-            );
+                $$(".choice-button").forEach(item => {
+
+                    item.disabled = true;
+
+                    item.style.opacity = ".5";
+
+                });
+
+
+                setTimeout(() => {
+
+                    currentRound++;
+
+
+                    if (currentRound < 3) {
+
+                        updateInterrogation();
+
+                    } else {
+
+                        finishInterrogation();
+
+                    }
+
+                }, 1200);
+
+            };
+
+
+            choices.appendChild(button);
 
         }
     );
@@ -1244,183 +899,97 @@ function updateInterrogation() {
 
 
 /* =========================================
-   ESCOLHER PERGUNTA
-========================================= */
-
-function selectChoice(
-    choice
-) {
-
-    /*
-        A resposta escolhida aparece
-        temporariamente como fala
-        do suspeito.
-    */
-
-    suspectMessage.textContent =
-        choice.response;
-
-
-    /*
-        Desativa as escolhas para evitar
-        múltiplos cliques.
-    */
-
-    const buttons =
-        document.querySelectorAll(
-            ".choice-button"
-        );
-
-    buttons.forEach(
-        button => {
-
-            button.disabled =
-                true;
-
-            button.style.opacity =
-                ".5";
-
-        }
-    );
-
-
-    /*
-        Espera a resposta aparecer
-        antes de avançar.
-    */
-
-    setTimeout(
-        () => {
-
-            if (
-                currentRound <
-                suspects[currentSuspect].dialogues.length - 1
-            ) {
-
-                currentRound++;
-
-                updateInterrogation();
-
-            } else {
-
-                finishInterrogation();
-
-            }
-
-        },
-        1500
-    );
-
-}
-
-
-/* =========================================
-   FINAL DA CONVERSA
+   FINAL DO INTERROGATÓRIO
 ========================================= */
 
 function finishInterrogation() {
 
-    interrogationRound.textContent =
+    $("#interrogationRound").textContent =
         "INTERROGATÓRIO CONCLUÍDO";
 
-    dialogProgress.textContent =
+
+    $("#dialogProgress").textContent =
         "3 / 3";
 
-    choices.innerHTML = "";
+
+    $("#choices").innerHTML = `
+        <button class="choice-button" id="returnSuspects">
+            ← VOLTAR À LISTA DE SUSPEITOS
+        </button>
+    `;
 
 
-    const button =
-        document.createElement("button");
+    $("#returnSuspects").onclick = () => {
 
-    button.className =
-        "choice-button";
+        closeInterrogation();
 
-    button.textContent =
-        "← VOLTAR À LISTA DE SUSPEITOS";
+        openSuspects();
 
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            closeInterrogation();
-
-            openSuspects();
-
-        }
-    );
-
-
-    choices.appendChild(
-        button
-    );
+    };
 
 }
 
 
 /* =========================================
-   FECHAR INTERROGATÓRIO
+   VOLTAR AO ARQUIVO
 ========================================= */
 
-function closeInterrogation() {
+$("#backToFile").onclick = () => {
 
-    interrogationScreen.classList.remove(
-        "active"
-    );
+    investigation.classList.remove("active");
 
-}
+    $("#pageCounter").textContent =
+        "01 / 06";
+
+};
+
+
+/* =========================================
+   VOLTAR PARA SUSPEITOS
+========================================= */
+
+$("#backSuspects").onclick = () => {
+
+    closeInterrogation();
+
+    openSuspects();
+
+};
 
 
 /* =========================================
    ALERTA
 ========================================= */
 
-function showAlert(
-    message
-) {
+function showAlert(message) {
 
-    alertMessage.textContent =
+    $("#alertMessage").textContent =
         message;
 
-    systemAlert.classList.add(
-        "active"
-    );
+    systemAlert.classList.add("active");
 
 }
 
-closeAlert.addEventListener(
-    "click",
-    () => {
 
-        systemAlert.classList.remove(
-            "active"
-        );
+$("#closeAlert").onclick = () => {
 
-    }
-);
+    systemAlert.classList.remove("active");
+
+};
 
 
 /* =========================================
    ESC
 ========================================= */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
+document.onkeydown = event => {
 
-        if (
-            event.key === "Escape"
-        ) {
+    if (event.key === "Escape") {
 
-            clueModal.classList.remove(
-                "active"
-            );
+        clueModal.classList.remove("active");
 
-            systemAlert.classList.remove(
-                "active"
-            );
-
-        }
+        systemAlert.classList.remove("active");
 
     }
-);
+
+};
