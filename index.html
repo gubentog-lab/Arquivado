@@ -24,6 +24,50 @@
 
     <div class="desk"></div>
 
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="inkRough" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/>
+        </filter>
+        <filter id="markerRough" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency=".035 .09" numOctaves="2" seed="9" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+        </filter>
+    </svg>
+
+    <div class="desk-decor" aria-hidden="true">
+
+        <div class="coffee-ring"></div>
+
+        <svg class="decor-pencil" viewBox="0 0 240 24">
+            <rect x="30" y="2" width="170" height="20" rx="2" fill="#d9a833"/>
+            <rect x="30" y="2" width="170" height="6" fill="#efc65a"/>
+            <rect x="30" y="16" width="170" height="6" fill="#b0821f"/>
+            <polygon points="30,2 4,12 30,22" fill="#e6c79a"/>
+            <polygon points="13,9 4,12 13,15" fill="#2b2926"/>
+            <rect x="198" y="2" width="14" height="20" fill="#9aa0a6"/>
+            <rect x="208" y="2" width="28" height="20" rx="7" fill="#d98080"/>
+        </svg>
+
+        <svg class="decor-lens" viewBox="0 0 200 200">
+            <defs>
+                <linearGradient id="lensGlass" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#e3f1f8" stop-opacity=".16"/>
+                    <stop offset="1" stop-color="#9fc0d0" stop-opacity=".05"/>
+                </linearGradient>
+            </defs>
+            <g transform="rotate(35 100 100)">
+                <rect x="93" y="118" width="14" height="76" rx="6" fill="#2a1a12"/>
+                <rect x="91" y="110" width="18" height="14" fill="#8a6b3a"/>
+                <circle cx="100" cy="68" r="52" fill="url(#lensGlass)" stroke="#8a6b3a" stroke-width="9"/>
+                <circle cx="100" cy="68" r="57" fill="none" stroke="#2a1a12" stroke-width="3"/>
+                <path d="M66 50 A40 40 0 0 1 96 30" stroke="#fff" stroke-opacity=".55"
+                      stroke-width="5" fill="none" stroke-linecap="round"/>
+            </g>
+        </svg>
+
+    </div>
+
     <section class="folder">
 
         <div class="paper paper-one"></div>
@@ -111,10 +155,10 @@
 
                 </div>
 
-                <div class="hand-note">
+                <button class="hand-note" id="startCase">
                     começar pelo<br>
                     local do crime
-                </div>
+                </button>
 
                 <div class="page-stamp">
                     RESTRITO
@@ -184,12 +228,16 @@
 
         </div>
 
-    </section>
+        <svg class="paperclip" viewBox="0 0 40 110" aria-hidden="true">
+            <path d="M18 30 L18 84 A6 6 0 0 0 30 84 L30 22 A9 9 0 0 0 12 22 L12 98"
+                  fill="none" stroke="#8d939a" stroke-width="3.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 30 L18 84 A6 6 0 0 0 30 84 L30 22 A9 9 0 0 0 12 22 L12 98"
+                  fill="none" stroke="#e9edf0" stroke-width="1.4"
+                  stroke-linecap="round" stroke-linejoin="round" transform="translate(-.6 -.6)"/>
+        </svg>
 
-    <div class="paperclip">
-        <div class="clip-inner"></div>
-        <div class="clip-tail"></div>
-    </div>
+    </section>
 
     <div class="note">
         NÃO TOCAR
@@ -199,21 +247,6 @@
         23 / 09 / 2026
     </div>
 
-    <nav class="navigation">
-
-        <button class="nav-button" id="previousPage">
-            ← ANTERIOR
-        </button>
-
-        <span id="pageCounter">
-            01 / 06
-        </span>
-
-        <button class="nav-button" id="nextPage">
-            PRÓXIMO →
-        </button>
-
-    </nav>
 
     <div class="investigation-screen" id="investigationScreen">
 
@@ -345,34 +378,51 @@
             <div class="suspects-grid">
 
                 <button class="suspect-card" data-suspect="1">
-                    <span class="suspect-number">SUSPEITO 01</span>
+                    <img class="mug" src="suspeito1.jpg" alt="">
+                    <div class="suspect-text"><span class="suspect-number">SUSPEITO 01</span>
                     <strong>EDUARDO █████</strong>
-                    <small>FUNCIONÁRIO LOCAL</small>
+                    <small>FUNCIONÁRIO LOCAL</small></div>
                 </button>
 
                 <button class="suspect-card" data-suspect="2">
-                    <span class="suspect-number">SUSPEITO 02</span>
+                    <img class="mug" src="suspeito2.jpg" alt="">
+                    <div class="suspect-text"><span class="suspect-number">SUSPEITO 02</span>
                     <strong>MARCOS █████</strong>
-                    <small>CONHECIDO DA VÍTIMA</small>
+                    <small>CONHECIDO DA VÍTIMA</small></div>
                 </button>
 
                 <button class="suspect-card" data-suspect="3">
-                    <span class="suspect-number">SUSPEITO 03</span>
+                    <img class="mug" src="suspeito3.jpg" alt="">
+                    <div class="suspect-text"><span class="suspect-number">SUSPEITO 03</span>
                     <strong>RENATO █████</strong>
-                    <small>MORADOR DA REGIÃO</small>
+                    <small>MORADOR DA REGIÃO</small></div>
                 </button>
 
                 <button class="suspect-card" data-suspect="4">
-                    <span class="suspect-number">SUSPEITO 04</span>
+                    <img class="mug" src="suspeito4.jpg" alt="">
+                    <div class="suspect-text"><span class="suspect-number">SUSPEITO 04</span>
                     <strong>DANIEL █████</strong>
-                    <small>ÚLTIMA PESSOA VISTA</small>
+                    <small>ÚLTIMA PESSOA VISTA</small></div>
                 </button>
 
             </div>
 
-            <button class="back-evidence" id="backEvidence">
-                ← VOLTAR ÀS EVIDÊNCIAS
-            </button>
+            <div class="suspects-footer">
+
+                <button class="back-evidence" id="backEvidence">
+                    ← VOLTAR ÀS EVIDÊNCIAS
+                </button>
+
+                <div class="interrogated-counter">
+                    INTERROGADOS:
+                    <strong id="interrogatedCounter">0 / 4</strong>
+                </div>
+
+                <button class="next-stage-button" id="continueToNext" hidden>
+                    PROSSEGUIR →
+                </button>
+
+            </div>
 
         </div>
 
@@ -396,6 +446,10 @@
 
             <div class="suspect-profile">
 
+                <img class="profile-img" id="profileImg" src="suspeito1.jpg" alt="">
+
+                <div class="profile-text">
+
                 <div class="profile-number" id="profileNumber">
                     SUSPEITO 01
                 </div>
@@ -408,33 +462,15 @@
                     FUNCIONÁRIO LOCAL
                 </span>
 
-            </div>
-
-            <div class="conversation">
-
-                <div class="message investigator-message">
-
-                    <span>INVESTIGADOR</span>
-
-                    <p id="investigatorMessage"></p>
-
-                </div>
-
-                <div class="message suspect-message">
-
-                    <span id="suspectMessageName">
-                        SUSPEITO
-                    </span>
-
-                    <p id="suspectMessage"></p>
-
                 </div>
 
             </div>
+
+            <div class="conversation" id="conversation"></div>
 
             <div class="choices-area">
 
-                <span class="choices-title">
+                <span class="choices-title" id="choicesTitle">
                     ESCOLHA UMA PERGUNTA
                 </span>
 
@@ -458,6 +494,371 @@
 
     </div>
 
+    <div class="dark-screen" id="darkScreen">
+
+        <div class="dr-room" id="drRoom">
+
+            <div class="dr-wall"></div>
+
+            <div class="dr-shelf">
+                <i class="bottle b1"><em>REVEL.</em></i>
+                <i class="bottle b2"><em>FIXADOR</em></i>
+                <i class="bottle b3"><em>ÁGUA</em></i>
+            </div>
+
+            <div class="dr-clock"><i></i><span>TIMER</span></div>
+
+            <div class="dr-bench"></div>
+
+            <div class="dr-lamp"></div>
+
+            <div class="scene-header">
+                <span>CASO Nº 017</span>
+                <span>LABORATÓRIO — SALA DE REVELAÇÃO</span>
+            </div>
+
+            <svg class="dr-cord" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 12 Q500 62 1000 12"/>
+            </svg>
+
+            <div class="dr-deco d1"></div>
+            <div class="dr-deco d2"></div>
+            <div class="dr-deco d3"></div>
+            <div class="dr-deco d4"></div>
+
+            <div class="dr-line" id="drLine"><span>VARAL</span></div>
+
+            <div class="dr-hint" id="drHint"></div>
+
+            <div class="dr-stack"><span>PAPEL FOTOGRÁFICO</span></div>
+
+            <div class="dr-tray active" id="drTray"><span>REVELADOR</span></div>
+            <div class="dr-tray decor stop" style="left:53%"><span>INTERRUPTOR</span></div>
+            <div class="dr-tray decor fix" style="left:76%"><span>FIXADOR</span></div>
+
+            <div class="dr-paper" id="drPaper">
+                <img src="foto-revelada.svg" alt="Foto revelada" draggable="false">
+            </div>
+
+            <div class="scene-controls">
+                <button id="darkBack">← VOLTAR AOS SUSPEITOS</button>
+                <div class="clue-counter">FOTO: <strong id="drStatus">NÃO REVELADA</strong></div>
+                <button id="darkContinue" class="continue-button" disabled>REVELE A FOTO</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clue-modal" id="photoModal">
+        <div class="clue-card">
+            <span class="clue-type">EVIDÊNCIA ENCONTRADA</span>
+            <h3>Foto revelada</h3>
+            <img class="photo-big" src="foto-revelada.svg" alt="Vítima sendo seguida">
+            <p>A vítima caminha pela praça sob o poste de luz. A poucos passos atrás, uma figura de jaqueta escura e capuz a segue, mantendo distância. O rosto não aparece. O horário no canto da imagem marca 01:52.</p>
+            <div class="clue-code">EVIDÊNCIA #06</div>
+            <button class="confirm-clue" id="collectPhoto">ARQUIVAR FOTO</button>
+        </div>
+    </div>
+
+    <div class="uv-screen" id="uvScreen">
+
+        <div class="uv-scene" id="uvStage">
+
+            <!-- MESA + FACA (vista de cima) -->
+            <svg class="uv-layer uv-table" viewBox="0 0 1000 560"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+                <defs>
+                    <linearGradient id="woodGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#3b2b1f"/>
+                        <stop offset="1" stop-color="#2a1d14"/>
+                    </linearGradient>
+
+                    <linearGradient id="bladeGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#d9dde2"/>
+                        <stop offset=".5" stop-color="#a9b0b8"/>
+                        <stop offset="1" stop-color="#6f767e"/>
+                    </linearGradient>
+
+                    <linearGradient id="handleGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#3a2d25"/>
+                        <stop offset=".5" stop-color="#241a15"/>
+                        <stop offset="1" stop-color="#17100d"/>
+                    </linearGradient>
+
+                    <pattern id="rulerTicks" width="10" height="26"
+                             patternUnits="userSpaceOnUse">
+                        <line x1="0.5" y1="0" x2="0.5" y2="10" stroke="#3b3326"/>
+                    </pattern>
+
+                    <filter id="knifeShadow" x="-10%" y="-20%" width="120%" height="150%">
+                        <feDropShadow dx="6" dy="10" stdDeviation="7"
+                                      flood-color="#000" flood-opacity=".6"/>
+                    </filter>
+
+                    <filter id="smudgeBlur">
+                        <feGaussianBlur stdDeviation="3"/>
+                    </filter>
+                </defs>
+
+                <!-- mesa -->
+                <rect width="1000" height="560" fill="url(#woodGrad)"/>
+                <g stroke="#1a120c" stroke-width="2" opacity=".7">
+                    <line x1="0" y1="140" x2="1000" y2="140"/>
+                    <line x1="0" y1="280" x2="1000" y2="280"/>
+                    <line x1="0" y1="420" x2="1000" y2="420"/>
+                </g>
+                <g stroke="#1a120c" stroke-width="1" opacity=".35" fill="none">
+                    <path d="M0 60 Q250 40 500 62 T1000 58"/>
+                    <path d="M0 200 Q300 220 520 198 T1000 206"/>
+                    <path d="M0 350 Q200 335 480 352 T1000 346"/>
+                    <path d="M0 490 Q260 505 540 488 T1000 494"/>
+                </g>
+
+                <!-- régua de perícia -->
+                <g transform="translate(60 500)">
+                    <rect width="460" height="26" fill="#d8c9a0"/>
+                    <rect width="460" height="26" fill="url(#rulerTicks)"/>
+                </g>
+
+                <!-- marcador numerado -->
+                <g transform="translate(850 105)">
+                    <polygon points="0,0 46,0 40,38 6,38" fill="#e0c24a"/>
+                    <text x="23" y="28" text-anchor="middle"
+                          font-family="Special Elite, serif" font-size="24"
+                          fill="#3a2f10">1</text>
+                </g>
+
+                <!-- faca (imagem) -->
+                <g transform="rotate(-4 500 280)">
+
+                    <g filter="url(#knifeShadow)">
+                        <image href="faca.png" x="50" y="210"
+                               width="900" height="139.5"/>
+                    </g>
+
+                    <!-- marcas avermelhadas na lâmina -->
+                    <g fill="#6e1f1a" opacity=".55">
+                        <ellipse cx="300" cy="292" rx="9" ry="3.5"/>
+                        <ellipse cx="365" cy="288" rx="5" ry="3"/>
+                        <ellipse cx="470" cy="279" rx="7" ry="3"/>
+                    </g>
+
+                    <!-- manchas fluorescentes sob UV (não são digitais) -->
+                    <g fill="#d2b4ff" opacity=".28" filter="url(#smudgeBlur)">
+                        <ellipse cx="540" cy="285" rx="26" ry="10"/>
+                        <ellipse cx="640" cy="262" rx="20" ry="8"/>
+                        <ellipse cx="700" cy="250" rx="20" ry="7"/>
+                        <ellipse cx="850" cy="256" rx="22" ry="7"/>
+                    </g>
+
+                </g>
+            </svg>
+
+            <!-- escuridão com a luz UV recortada -->
+            <div class="uv-layer uv-dark"></div>
+            <div class="uv-layer uv-tint"></div>
+
+            <div class="uv-layer uv-glow"></div>
+
+            <!-- digital (acima da escuridão: brilha quando a luz chega nela) -->
+            <svg class="uv-layer uv-print-layer" viewBox="0 0 1000 560"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <g transform="rotate(-4 500 280)">
+                    <g class="uv-print" id="uvPrint"
+                       transform="translate(766 253) rotate(80)">
+                        <image href="digital-uv.png" x="-17" y="-26"
+                               width="34" height="52"/>
+                    </g>
+                </g>
+            </svg>
+
+            <div class="uv-cursor"></div>
+
+            <div class="uv-hint">
+                MOVA A LUZ UV SOBRE A FACA
+            </div>
+
+            <div class="scene-header uv-header">
+                <span>CASO Nº 017</span>
+                <span>ANÁLISE — LUZ ULTRAVIOLETA</span>
+            </div>
+
+            <div class="scene-title">
+                EXAME DA ARMA
+            </div>
+
+            <div class="scene-controls">
+
+                <button id="uvBack">
+                    ← VOLTAR AOS SUSPEITOS
+                </button>
+
+                <div class="clue-counter">
+                    DIGITAL:
+                    <strong id="printStatus">NÃO ENCONTRADA</strong>
+                </div>
+
+                <button
+                    id="uvContinue"
+                    class="continue-button"
+                    disabled
+                >
+                    ENCONTRE A DIGITAL
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clue-modal" id="printModal">
+
+        <div class="clue-card">
+
+            <span class="clue-type">
+                EVIDÊNCIA ENCONTRADA
+            </span>
+
+            <h3>Digital revelada</h3>
+
+            <p>
+                Sob a luz ultravioleta, uma impressão digital apareceu
+                no cabo da faca. O padrão está parcialmente preservado
+                e pode ser coletado para comparação.
+            </p>
+
+            <div class="clue-code">
+                EVIDÊNCIA #07
+            </div>
+
+            <button class="confirm-clue" id="collectPrint">
+                COLETAR DIGITAL
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="compare-screen" id="compareScreen">
+
+        <div class="compare-panel">
+
+            <div class="compare-header">
+                <span>CASO Nº 017</span>
+                <span>BANCO DE DIGITAIS</span>
+            </div>
+
+            <h2 class="compare-title">
+                COMPARAÇÃO DE DIGITAIS
+            </h2>
+
+            <p class="compare-hint">
+                Compare o núcleo, as espirais e as bifurcações da digital
+                encontrada com cada registro do banco.
+            </p>
+
+            <div class="compare-body">
+
+                <section class="print-pane">
+
+                    <div class="pane-top">
+                        <span class="pane-label">DIGITAL ENCONTRADA</span>
+                        <span class="pane-code">EVIDÊNCIA #07</span>
+                    </div>
+
+                    <div class="print-frame">
+                        <img class="print-img" src="digital-found.png"
+                             alt="Digital encontrada na faca" draggable="false">
+                        <span class="scan-line"></span>
+                    </div>
+
+                    <div class="pane-bottom">
+                        <span>ORIGEM: ARMA (FACA)</span>
+                        <span>QUALIDADE: PARCIAL</span>
+                    </div>
+
+                </section>
+
+                <section class="print-pane">
+
+                    <div class="pane-top">
+                        <span class="pane-label">REGISTROS DO BANCO</span>
+                        <span class="pane-code" id="dbCode">REG. 017-01</span>
+                    </div>
+
+                    <div class="print-frame carousel" id="compareCarousel">
+
+                        <div class="compare-track" id="compareTrack"></div>
+
+                        <button class="carousel-arrow prev" id="comparePrev"
+                                aria-label="Digital anterior">‹</button>
+
+                        <button class="carousel-arrow next" id="compareNext"
+                                aria-label="Próxima digital">›</button>
+
+                        <img class="db-img" id="dbImg" src="suspeito1.jpg" alt="">
+
+                        <span class="scan-line"></span>
+
+                    </div>
+
+                    <div class="pane-bottom">
+                        <span id="dbName">EDUARDO █████</span>
+                        <span id="dbOccupation">FUNCIONÁRIO LOCAL</span>
+                    </div>
+
+                    <div class="compare-dots" id="compareDots"></div>
+
+                </section>
+
+            </div>
+
+            <div class="compare-footer">
+
+                <button class="compare-button" id="compareBack">
+                    ← VOLTAR À FACA
+                </button>
+
+                <div class="compare-counter">
+                    DIGITAIS ANALISADAS:
+                    <strong id="compareCounter">1 / 4</strong>
+                </div>
+
+                <button class="compare-button compare-continue"
+                        id="compareContinue" hidden>
+                    PROSSEGUIR →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="suspects-screen" id="nextStageScreen">
+
+        <div class="suspects-panel">
+
+            <div class="suspects-header">
+                <span>CASO Nº 017</span>
+                <span>PRÓXIMA ETAPA</span>
+            </div>
+
+            <h2>
+                PRÓXIMA TELA
+            </h2>
+
+            <p class="suspects-description">
+                Coloque aqui a próxima etapa do jogo.
+            </p>
+
+        </div>
+
+    </div>
+
     <div class="system-alert" id="systemAlert">
 
         <div class="alert-box">
@@ -473,6 +874,106 @@
             </button>
 
         </div>
+
+    </div>
+
+    <!-- QUADRO DE EVIDÊNCIAS + FINAL -->
+    <button class="board-btn" id="boardBtn">QUADRO DE EVIDÊNCIAS <b id="boardNew">0</b></button>
+
+    <div class="fz" id="boardZ" style="z-index:90">
+        <h2>QUADRO DE EVIDÊNCIAS</h2>
+        <p class="sub" id="boardSub"></p>
+        <div class="cork" id="cork"><svg class="strings" id="boardStrings"></svg></div>
+        <button class="fbtn" id="boardClose">FECHAR</button>
+    </div>
+
+    <div class="fz dark" id="confZ"></div>
+    <div class="fz" id="tlZ"></div>
+    <div class="fz dark" id="newsZ"></div>
+
+    <div class="fz dark" id="endZ">
+
+        <div class="end-stage">
+
+            <div class="end-folder" id="endFolder">
+
+                <!-- frente da pasta (igual à do começo, agora encerrada) -->
+                <div class="end-face end-front">
+                    <div class="folder-tab"><span>ARQUIVO</span></div>
+                    <div class="folder-body">
+                        <div class="folder-label">
+                            <span class="label-small">DEPARTAMENTO DE INVESTIGAÇÃO</span>
+                            <h1>CASO Nº 017</h1>
+                            <div class="label-line"></div>
+                            <span class="label-info">ARQUIVO CONFIDENCIAL</span>
+                        </div>
+                        <div class="stamp">ENCERRADO</div>
+                        <div class="folder-info">
+                            <div><span>STATUS</span><strong>ARQUIVADO</strong></div>
+                            <div><span>CLASSIFICAÇÃO</span><strong>ENCERRADO</strong></div>
+                            <div><span>ARQUIVO</span><strong>017-A</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- verso da pasta -->
+                <div class="end-face end-back">
+                    <div class="folder-tab"><span>ARQUIVADO</span></div>
+                    <div class="folder-body back-body">
+
+                        <div class="back-sticker">
+                            <span>ARQUIVO MORTO</span>
+                            <i></i>
+                            <b>017-A</b>
+                        </div>
+
+                        <div class="coffee-ring back-ring"></div>
+
+                        <svg class="seal" viewBox="0 0 160 160" aria-hidden="true">
+                            <defs>
+                                <path id="sealArc" d="M80 80 m-58 0 a58 58 0 1 1 116 0 a58 58 0 1 1 -116 0"/>
+                            </defs>
+                            <g fill="none" stroke="#8e2929" stroke-width="3" filter="url(#inkRough)">
+                                <circle cx="80" cy="80" r="74"/>
+                                <circle cx="80" cy="80" r="42" stroke-width="2"/>
+                                <text fill="#8e2929" stroke="none" font-family="Special Elite, serif"
+                                      font-size="12" textLength="352" lengthAdjust="spacing">
+                                    <textPath href="#sealArc">ARQUIVO MORTO ★ DEPTO. DE INVESTIGAÇÃO ★</textPath>
+                                </text>
+                                <text x="80" y="76" text-anchor="middle" fill="#8e2929" stroke="none"
+                                      font-family="Special Elite, serif" font-size="13">CASO</text>
+                                <text x="80" y="98" text-anchor="middle" fill="#8e2929" stroke="none"
+                                      font-family="Special Elite, serif" font-size="22">017</text>
+                            </g>
+                        </svg>
+
+                        <svg class="fim-svg" viewBox="0 0 440 220" aria-hidden="true">
+                            <g fill="none" stroke="#1b1816" stroke-width="20"
+                               stroke-linecap="round" stroke-linejoin="round" filter="url(#markerRough)">
+                                <path d="M58 182 C60 130 62 80 66 34 C110 28 160 30 196 40"/>
+                                <path d="M66 108 C100 102 134 104 164 110"/>
+                                <path d="M236 40 C234 90 232 140 230 184"/>
+                                <path d="M292 184 C296 130 300 84 304 34 C326 70 352 108 372 130 C392 98 408 62 420 30 C422 80 420 140 416 186"/>
+                            </g>
+                            <path d="M40 206 C150 192 300 198 420 206" stroke="#1b1816" stroke-width="7"
+                                  fill="none" stroke-linecap="round" opacity=".85" filter="url(#markerRough)"/>
+                        </svg>
+
+                        <p class="back-date">CASO ENCERRADO EM 24 / 09 / 2026</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="end-shadow"></div>
+
+        </div>
+
+        <button class="fbtn" id="again">REINICIAR</button>
+
+        <div class="note">CASO ENCERRADO</div>
+        <div class="date">24 / 09 / 2026</div>
 
     </div>
 
