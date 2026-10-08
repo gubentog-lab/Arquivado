@@ -1,11 +1,6 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => document.querySelectorAll(selector);
 
-
-/* =========================================
-   ELEMENTOS PRINCIPAIS
-========================================= */
-
 const folder = $(".folder");
 const navigation = $(".navigation");
 
@@ -17,11 +12,6 @@ const clueModal = $("#clueModal");
 const systemAlert = $("#systemAlert");
 
 const continueToSuspects = $("#continueToSuspects");
-
-
-/* =========================================
-   EVIDÊNCIAS
-========================================= */
 
 const clues = {
 
@@ -71,11 +61,6 @@ const clues = {
     }
 
 };
-
-
-/* =========================================
-   SUSPEITOS
-========================================= */
 
 const suspects = {
 
@@ -448,21 +433,11 @@ const suspects = {
 
 };
 
-
-/* =========================================
-   ESTADO
-========================================= */
-
 const foundClues = new Set();
 
 let currentClue = null;
 let currentSuspect = null;
 let currentRound = 0;
-
-
-/* =========================================
-   ABRIR CASO
-========================================= */
 
 $("#openCase").onclick = () => {
 
@@ -474,17 +449,7 @@ $("#openCase").onclick = () => {
 
 };
 
-
-/* =========================================
-   PRÓXIMO
-========================================= */
-
 $("#nextPage").onclick = () => {
-
-    /*
-       PRIMEIRA PÁGINA
-       Vai para o local do crime.
-    */
 
     if (
         !investigation.classList.contains("active") &&
@@ -496,11 +461,6 @@ $("#nextPage").onclick = () => {
 
         return;
     }
-
-
-    /*
-       LOCAL DO CRIME
-    */
 
     if (investigation.classList.contains("active")) {
 
@@ -518,22 +478,12 @@ $("#nextPage").onclick = () => {
         return;
     }
 
-
-    /*
-       SUSPEITOS
-    */
-
     if (suspectsScreen.classList.contains("active")) {
 
         return;
     }
 
 };
-
-
-/* =========================================
-   ANTERIOR
-========================================= */
 
 $("#previousPage").onclick = () => {
 
@@ -566,11 +516,6 @@ $("#previousPage").onclick = () => {
 
 };
 
-
-/* =========================================
-   LOCAL DO CRIME
-========================================= */
-
 function openInvestigation() {
 
     investigation.classList.add("active");
@@ -582,11 +527,6 @@ function openInvestigation() {
     $("#pageCounter").textContent = "02 / 06";
 
 }
-
-
-/* =========================================
-   SUSPEITOS
-========================================= */
 
 function openSuspects() {
 
@@ -606,11 +546,6 @@ function closeSuspects() {
     suspectsScreen.classList.remove("active");
 
 }
-
-
-/* =========================================
-   INTERROGATÓRIO
-========================================= */
 
 function openInterrogation(id) {
 
@@ -634,11 +569,6 @@ function closeInterrogation() {
     interrogation.classList.remove("active");
 
 }
-
-
-/* =========================================
-   HOTSPOTS
-========================================= */
 
 $$(".hotspot").forEach(hotspot => {
 
@@ -676,11 +606,6 @@ $$(".hotspot").forEach(hotspot => {
 
 });
 
-
-/* =========================================
-   ARQUIVAR EVIDÊNCIA
-========================================= */
-
 $("#confirmClue").onclick = () => {
 
     if (!currentClue) {
@@ -697,11 +622,6 @@ $("#confirmClue").onclick = () => {
 
     clueModal.classList.remove("active");
 
-
-    /*
-       QUANDO AS 5 EVIDÊNCIAS FOREM ENCONTRADAS
-    */
-
     if (foundClues.size === 5) {
 
         continueToSuspects.disabled = false;
@@ -714,11 +634,6 @@ $("#confirmClue").onclick = () => {
     }
 
 };
-
-
-/* =========================================
-   FECHAR EVIDÊNCIA
-========================================= */
 
 $("#closeClue").onclick = () => {
 
@@ -737,11 +652,6 @@ clueModal.onclick = event => {
 
 };
 
-
-/* =========================================
-   BOTÃO PROSSEGUIR PARA SUSPEITOS
-========================================= */
-
 continueToSuspects.onclick = () => {
 
     if (foundClues.size < 5) {
@@ -757,11 +667,6 @@ continueToSuspects.onclick = () => {
 
 };
 
-
-/* =========================================
-   SUSPEITOS
-========================================= */
-
 $$(".suspect-card").forEach(card => {
 
     card.onclick = () => {
@@ -774,11 +679,6 @@ $$(".suspect-card").forEach(card => {
 
 });
 
-
-/* =========================================
-   VOLTAR PARA EVIDÊNCIAS
-========================================= */
-
 $("#backEvidence").onclick = () => {
 
     closeSuspects();
@@ -786,11 +686,6 @@ $("#backEvidence").onclick = () => {
     openInvestigation();
 
 };
-
-
-/* =========================================
-   ATUALIZAR INTERROGATÓRIO
-========================================= */
 
 function updateInterrogation() {
 
@@ -897,11 +792,6 @@ function updateInterrogation() {
 
 }
 
-
-/* =========================================
-   FINAL DO INTERROGATÓRIO
-========================================= */
-
 function finishInterrogation() {
 
     $("#interrogationRound").textContent =
@@ -929,11 +819,6 @@ function finishInterrogation() {
 
 }
 
-
-/* =========================================
-   VOLTAR AO ARQUIVO
-========================================= */
-
 $("#backToFile").onclick = () => {
 
     investigation.classList.remove("active");
@@ -943,11 +828,6 @@ $("#backToFile").onclick = () => {
 
 };
 
-
-/* =========================================
-   VOLTAR PARA SUSPEITOS
-========================================= */
-
 $("#backSuspects").onclick = () => {
 
     closeInterrogation();
@@ -955,11 +835,6 @@ $("#backSuspects").onclick = () => {
     openSuspects();
 
 };
-
-
-/* =========================================
-   ALERTA
-========================================= */
 
 function showAlert(message) {
 
@@ -976,11 +851,6 @@ $("#closeAlert").onclick = () => {
     systemAlert.classList.remove("active");
 
 };
-
-
-/* =========================================
-   ESC
-========================================= */
 
 document.onkeydown = event => {
 
